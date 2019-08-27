@@ -77,7 +77,7 @@
 <meta property="og:site_name" content="YouthFaith&#39;s Blog">
 <meta property="og:description" content="Practice makes perfect.   Type aliasUsage of typedef Function time: compile Define another name for a data type: typedef OldDataType NewDataType; Define a new simple alias for a complex declaration: t">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-27T02:57:42.938Z">
+<meta property="og:updated_time" content="2019-08-27T07:44:36.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Advanced Knowledge of C Language">
 <meta name="twitter:description" content="Practice makes perfect.   Type aliasUsage of typedef Function time: compile Define another name for a data type: typedef OldDataType NewDataType; Define a new simple alias for a complex declaration: t">
@@ -313,7 +313,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-27 10:57:42" itemprop="dateModified" datetime="2019-08-27T10:57:42+08:00">2019-08-27</time>
+                <time title="Modified: 2019-08-27 15:44:36" itemprop="dateModified" datetime="2019-08-27T15:44:36+08:00">2019-08-27</time>
               </span>
             
           
@@ -348,7 +348,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span>39k</span>
+              <span>40k</span>
             </span>
           
             <span class="post-meta-item" title="Reading time">
@@ -828,6 +828,15 @@
 <h3 id="Introduction-of-file-pointer"><a href="#Introduction-of-file-pointer" class="headerlink" title="Introduction of file pointer"></a>Introduction of file pointer</h3><ol>
 <li><p>Definition of file pointer: <code>FILE *PointerName</code>. System automatically create a file type structure variable for it and return a pointer to it when we open a file. Program use this pointer to access file and get information. </p>
 </li>
+<li><p>Mode of file pointer: The argument mode points to a string beginning with one of the  following sequences (possibly followed by additional characters, as described below).</p>
+<ul>
+<li><code>r</code>: open text file for reading. The stream is positioned at the beginning of the file.</li>
+<li><code>w</code>: truncate file to zero length or create text  file  for  writing. The stream is positioned at the beginning of the file.</li>
+<li><code>a</code>: open  for  appending (writing at end of file).  The file is created if it does not exist.  The stream is positioned at the  end of the file.</li>
+<li><code>+</code>: open  for  reading  and writing</li>
+<li><code>b</code>: The mode string can also include the letter <strong>b</strong> either as a last  character or as a character between the characters in any of the two-character strings described above. This is strictly for compatibility with <strong>C89</strong> and has no effect; the <strong>b</strong> is ignored on all POSIX conforming systems, including Linux. (Other systems may treat text files and binary files differently, and adding the <strong>b</strong> may be a good idea if you do I/O to a binary file and expect that your program may be ported to non-UNIX environments.)</li>
+</ul>
+</li>
 <li><p>Common functions about file pointer:</p>
 <ul>
 <li><code>FILE *fopen(const char *pathname, const char *mode);</code>: open the file whose name is the string pointed to by <strong>pathname</strong> and associates a stream with it. </li>
@@ -841,13 +850,16 @@
 <li><code>int fprintf(FILE *stream, const char *format, ...);</code>: output to a file descriptor <strong>fd</strong>, instead of to a <strong>stdio</strong> stream. Upon successful return, it returns the number of characters printed(excluding the null byte used to end output to strings) and If an output error is encountered, a negative value is returned.</li>
 </ul>
 </li>
-<li><p>Mode of file pointer: The argument mode points to a string beginning with one of the  following sequences (possibly followed by additional characters, as described below).</p>
+<li><p>Input and output of binary file:</p>
 <ul>
-<li><code>r</code>: open text file for reading. The stream is positioned at the beginning of the file.</li>
-<li><code>w</code>: truncate file to zero length or create text  file  for  writing. The stream is positioned at the beginning of the file.</li>
-<li><code>a</code>: open  for  appending (writing at end of file).  The file is created if it does not exist.  The stream is positioned at the  end of the file.</li>
-<li><code>+</code>: open  for  reading  and writing</li>
-<li><code>b</code>: The mode string can also include the letter <strong>b</strong> either as a last  character or as a character between the characters in any of the two-character strings described above. This is strictly for compatibility with <strong>C89</strong> and has no effect; the <strong>b</strong> is ignored on all POSIX conforming systems, including Linux. (Other systems may treat text files and binary files differently, and adding the <strong>b</strong> may be a good idea if you do I/O to a binary file and expect that your program may be ported to non-UNIX environments.)</li>
+<li><code>size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);</code>: read <strong>nmemb</strong> items of data, each <strong>size</strong> bytes long, from the stream pointed to by <strong>stream</strong>,  storing  them  at  the location given by <strong>ptr</strong>. </li>
+<li><code>size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);</code>: write <strong>nmemb</strong> items of data, each <strong>size</strong> bytes long, to the stream pointed to by <strong>stream</strong>, obtaining them  from the location given by <strong>ptr</strong>.</li>
+<li>Return value: On sucess <code>fread()</code> and <code>fwrite</code> return the number of items read or written. This number equals the number of bytes transferred only when <strong>size</strong> is 1. If an error occurs, or the end of the file is reached, the return value is a short item count(or zero).</li>
+</ul>
+</li>
+<li><p>Other functions in file operation:</p>
+<ul>
+<li></li>
 </ul>
 </li>
 <li><p>Example one</p>
@@ -1098,6 +1110,10 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
+          <a href="http://dzblog.cn" title="http://dzblog.cn" rel="noopener" target="_blank">Wintermelon's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
           <a href="https://crossoverjie.top" title="https://crossoverjie.top" rel="noopener" target="_blank">crossoverJie's Blog</a>
         </li>
       
@@ -1141,12 +1157,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">68k</span>
+    <span title="Symbols count total">69k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:02</span>
+    <span title="Reading time total">1:03</span>
 </div>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
