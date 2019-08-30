@@ -79,7 +79,7 @@
 <meta property="og:site_name" content="YouthFaith&#39;s Blog">
 <meta property="og:description" content="dog $\sim$ Sin dog  Introduction of C LanguageProgram, algorithm and flow chart&amp;emsp;A program, as a translator between computer language and human language, is an instruction set written in a compute">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-28T11:56:20.880Z">
+<meta property="og:updated_time" content="2019-08-29T14:16:08.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Basic Knowledge of C Language">
 <meta name="twitter:description" content="dog $\sim$ Sin dog  Introduction of C LanguageProgram, algorithm and flow chart&amp;emsp;A program, as a translator between computer language and human language, is an instruction set written in a compute">
@@ -315,7 +315,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-28 19:56:20" itemprop="dateModified" datetime="2019-08-28T19:56:20+08:00">2019-08-28</time>
+                <time title="Modified: 2019-08-29 22:16:08" itemprop="dateModified" datetime="2019-08-29T22:16:08+08:00">2019-08-29</time>
               </span>
             
           
@@ -350,7 +350,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span>30k</span>
+              <span>28k</span>
             </span>
           
             <span class="post-meta-item" title="Reading time">
@@ -360,7 +360,7 @@
               
                 <span class="post-meta-item-text">Reading time &asymp;</span>
               
-              <span>27 mins.</span>
+              <span>26 mins.</span>
             </span>
           
 
@@ -415,102 +415,6 @@
 <li>Software testing;</li>
 <li>Software delivery;</li>
 <li>Software maintenance.</li>
-</ol>
-<h2 id="GCC-and-GDB"><a href="#GCC-and-GDB" class="headerlink" title="GCC and GDB"></a>GCC and GDB</h2><h3 id="Usage-of-GCC"><a href="#Usage-of-GCC" class="headerlink" title="Usage of GCC"></a>Usage of GCC</h3><ol>
-<li>GNU project<ul>
-<li><code>src</code>: contain source files;</li>
-<li><code>bin</code>: contain executable files;</li>
-<li><code>obj</code>: contain object files;</li>
-<li><code>include</code>: contain header files.</li>
-</ul>
-</li>
-<li>Basic grammar of GCC: <code>gcc [options] file...</code><ul>
-<li><code>-E</code>: preprocess only, do not compile, assemble or link;</li>
-<li><code>-S</code>: compile only, do not assemble or link;</li>
-<li><code>-c</code>: compile and assemble, but do not link;</li>
-<li><code>-o &lt;file&gt;</code>: place the output into file;</li>
-<li><code>-std=&lt;standard&gt;</code>: assume that the input sources are for standard;</li>
-<li><code>-I &lt;dir&gt;</code>: add <code>dir</code> to the search path list of header files;</li>
-<li><code>-O/O2/O3</code>: Some optimizations are enable and the larger the number, the higher the level. And we can use <code>time executable file</code> to view execution time;</li>
-<li><code>-ansi</code>: In C mode, this is equivalent to <code>-std=c90</code> and in C++ mode, it is equivalent to <code>-std=c++9</code>;</li>
-<li><code>-Wall</code>: This enables all the warnings about constructions considered questionable.</li>
-</ul>
-</li>
-<li>Compile process of GCC<ul>
-<li>The first step: preprocessing phase <code>gcc -E file.c -o main.i</code><ul>
-<li>Conditional compilation and header file expansion;</li>
-<li>Macro substitution(#define) —- macro with parameters: <code>#define function(x) Expression of the variable x</code>;</li>
-<li>Remove comments;</li>
-</ul>
-</li>
-<li>The second step: compile phase <code>gcc -S file.i -o file.s</code><ul>
-<li>Analyze the words, syntax and semantics of the files that need to be compiled, and optimize them to make sure they are correct. When all the above syntax is correct, an assembly file will be generated;</li>
-</ul>
-</li>
-<li>The third step: assembly phase <code>gcc -c file.s -o file.o</code><ul>
-<li>Assemble assembly language into machine language;</li>
-</ul>
-</li>
-<li>The fourth step: link phase <code>gcc -o execuable file file.o</code><ul>
-<li>Link dynamic and static libraries to generate executable files.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="The-usage-of-GDB"><a href="#The-usage-of-GDB" class="headerlink" title="The usage of GDB"></a>The usage of GDB</h3><ol>
-<li><p>GDB is used to debug some programs. It has mainly four purposes:</p>
-<ul>
-<li>Run the program as the user requests;</li>
-<li>Stop the program at the break point;</li>
-<li>Check the environment such as variables before breakpoints;</li>
-<li>Modify the execution environment dynamically.</li>
-</ul>
-</li>
-<li><p>The command format: <code>gcc - g [options] file...</code> $\Rightarrow$ <code>gdb executable file</code>.</p>
-</li>
-<li><p>The common commands in GDB</p>
-<ul>
-<li><code>l(list) [LineNumber/FunctionName]</code>: type the text of the program in the vicinity of where it is presently stopped</li>
-<li><code>b(break) LineNumber/FunctionName</code>: set a breakpoint at function</li>
-<li><code>disable BreakPointNumber</code>: make breakpoint disable at the present</li>
-<li><code>delete BreakPointNumber</code>: delete breakpoint</li>
-<li><code>info b</code>: view the breakpoint user sets</li>
-<li><code>r(run)</code>: start program</li>
-<li><code>p(print) expr</code>: display the value of an expression</li>
-<li><code>n(next)</code>: execute next program line and step over any function calls in the line</li>
-<li><code>s(step)</code>: execute next program line and step into any function calls in the line</li>
-<li><code>c(continue)</code>: continue running program</li>
-</ul>
-</li>
-<li><p>Senior commands in GDB</p>
-<ul>
-<li><code>set args ParametersList</code>: set runtime parameters</li>
-<li><code>show args</code>: show runtime parameters</li>
-<li><code>path dir</code>: set the path to run the program</li>
-<li><code>show paths</code>: show executable and object file path</li>
-<li><code>set Variable = Value</code>: modify variable value during runtime</li>
-<li><code>set environment Variable [=Value]</code>: set environment variable of the computer</li>
-<li><code>show environment [Variable]</code>: show environment variable of the computer</li>
-<li><code>cd dir</code>: change current directory</li>
-<li><code>pwd</code>: show working directory</li>
-<li><code>shell Command</code>: run commands for shell</li>
-<li><code>x /&lt;n/f/u&gt; &lt;addr&gt;</code>: show variable value in the memory. Thereamong, <strong>n</strong> represents the length of memory, <strong>f[d/o/x/c/s/i]</strong> represents the format of the display, <strong>u[b/h/w/g]</strong> represents the number of bytes to display from the current address, and <strong>addr</strong> represents the memory address of variable.</li>
-<li><code>disassemble FunctionName</code>: view the assembly code</li>
-<li><code>display /i $pc</code>: show source code and assembly code. <strong>$pc</strong> represents the value of the program counter and <strong>/i</strong> represents displaying in instruction address format.</li>
-</ul>
-</li>
-<li><p>When an abnormal crash occurs while the program is running, the current memory condition of the running program is stored in a core file by core dump. And segmentation fault is the major cause of this. So the file can be used to find where error is.</p>
-<ul>
-<li><code>ulimit -c [size]</code>: set the size of core file(the uunit is kbyte)</li>
-<li><code>gcc -g -o ExecutableFile SourceFile</code>: compile program with <strong>-g</strong></li>
-<li>Run it: Core dump will generate core file if any problem.</li>
-<li><code>gdb ExecutableFile CoreFile</code>: locate where fault is</li>
-</ul>
-</li>
-<li><p>Example one</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Learn the disassemble function in GDB</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The sum = %d\n"</span>,i+j);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">The result of disassembling:</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">(gdb) disassemble main </span></span><br><span class="line"><span class="comment">Dump of assembler code for function main:</span></span><br><span class="line"><span class="comment">   0x0000000000001135 &lt;+0&gt;:	push   %rbp</span></span><br><span class="line"><span class="comment">   0x0000000000001136 &lt;+1&gt;:	mov    %rsp,%rbp</span></span><br><span class="line"><span class="comment">   0x0000000000001139 &lt;+4&gt;:	sub    $0x20,%rsp</span></span><br><span class="line"><span class="comment">   0x000000000000113d &lt;+8&gt;:	mov    %edi,-0x14(%rbp)</span></span><br><span class="line"><span class="comment">   0x0000000000001140 &lt;+11&gt;:	mov    %rsi,-0x20(%rbp)</span></span><br><span class="line"><span class="comment">   0x0000000000001144 &lt;+15&gt;:	movl   $0x1,-0x8(%rbp)</span></span><br><span class="line"><span class="comment">   0x000000000000114b &lt;+22&gt;:	movl   $0x2,-0x4(%rbp)</span></span><br><span class="line"><span class="comment">   0x0000000000001152 &lt;+29&gt;:	mov    -0x8(%rbp),%edx</span></span><br><span class="line"><span class="comment">   0x0000000000001155 &lt;+32&gt;:	mov    -0x4(%rbp),%eax</span></span><br><span class="line"><span class="comment">   0x0000000000001158 &lt;+35&gt;:	add    %edx,%eax</span></span><br><span class="line"><span class="comment">   0x000000000000115a &lt;+37&gt;:	mov    %eax,%esi</span></span><br><span class="line"><span class="comment">   0x000000000000115c &lt;+39&gt;:	lea    0xea1(%rip),%rdi        # 0x2004</span></span><br><span class="line"><span class="comment">   0x0000000000001163 &lt;+46&gt;:	mov    $0x0,%eax</span></span><br><span class="line"><span class="comment">   0x0000000000001168 &lt;+51&gt;:	callq  0x1030 &lt;printf@plt&gt;</span></span><br><span class="line"><span class="comment">   0x000000000000116d &lt;+56&gt;:	mov    $0x0,%eax</span></span><br><span class="line"><span class="comment">   0x0000000000001172 &lt;+61&gt;:	leaveq </span></span><br><span class="line"><span class="comment">   0x0000000000001173 &lt;+62&gt;:	retq   </span></span><br><span class="line"><span class="comment">End of assembler dump.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-</li>
 </ol>
 <h2 id="Primary-data-type"><a href="#Primary-data-type" class="headerlink" title="Primary data type"></a>Primary data type</h2><h3 id="Constants-and-variables"><a href="#Constants-and-variables" class="headerlink" title="Constants and variables"></a>Constants and variables</h3><ol>
 <li>Constant:  A variable whose value can not be changed during the execution and can be used directly without declaration:<ul>
@@ -838,6 +742,79 @@
 <li>Robustness of code must be considered when we apply for storage area in heap or use pointer.</li>
 <li>Coding rule: Keep in mind that code is something to show people, not to show off.</li>
 </ol>
+<h2 id="Basic-knowledge-of-pointer"><a href="#Basic-knowledge-of-pointer" class="headerlink" title="Basic knowledge of pointer"></a>Basic knowledge of pointer</h2><h3 id="Introduction-of-pointer"><a href="#Introduction-of-pointer" class="headerlink" title="Introduction of pointer"></a>Introduction of pointer</h3><ol>
+<li>Role of pointer:<ul>
+<li>Represent complex data structures effectively</li>
+<li>Easy to use arrays and stings</li>
+<li>Make function parameter passing more flexible</li>
+<li>Able to deal with memory address</li>
+</ul>
+</li>
+<li>Concept of pointer:<ul>
+<li>The memory is addressed in bytes and one memory cell occupies one byte.</li>
+<li>One variable, whose address is represented by the address of the first byte, corresponds to one storage cell and occupies a certain number of bytes.</li>
+<li>Pointer is a variable, whose value is the address of another variable it points to. And a pointer variable is simply called a pointer. </li>
+</ul>
+</li>
+<li>Definition of pointer:<ul>
+<li>Format: <code>DataType *PointerName;</code>, where <strong>DataType</strong> represents type of variable which the pointer points to.  </li>
+<li><code>*</code> is pointer operator.</li>
+<li>Size: No matter what a pointer point to, its size is the same as one machine word-length.</li>
+</ul>
+</li>
+<li>Initialization of point:<ul>
+<li>Format: <code>PointName = NULL;</code>, where <strong>NULL</strong> is equal to zero and it indicates the pointer points to nothing. <code>PointerName = &amp;VariableNAme;</code>.</li>
+<li>Of course, we can define and initialize at the same time.</li>
+</ul>
+</li>
+<li>Addition and subtraction operation: We can move the pointer by add and sub operation.</li>
+<li>Name of array:<ul>
+<li>Name of array is a storage cell address of the first element address in the array.</li>
+<li>Name of array is a constant and disable to be reassigned.</li>
+<li>We can get another element in the array using offset.</li>
+</ul>
+</li>
+<li>Traversal method of array:<ul>
+<li>Subscript method: <code>ArrayName[Subscript]</code></li>
+<li>Pointer method: <code>*(ArrayName+Subsript)</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="Segmentation-fault"><a href="#Segmentation-fault" class="headerlink" title="Segmentation fault"></a>Segmentation fault</h3><ol>
+<li>Concept and cause of segmentation fault: <ul>
+<li>A segmentation fault occurs when a program attempts to access a memory location that it is not allowed to access, or attempts to access a memory location in a way that is not allowed (e.g., attempts to write to a read-only location, or to overwrite part of the operating system). </li>
+<li>Common case: overwrite nil pointer, access a nonexistent memory location, access a system-protected memory location and modify variables in the constant area.</li>
+</ul>
+</li>
+<li>Common ways to avoid segmentation fault:<ul>
+<li>Better to initialize variables when defining them</li>
+<li>Do not overstep the boundary of any array </li>
+<li>Avoid to overwrite some protected or nonexistent memory cell</li>
+</ul>
+</li>
+</ol>
+<h3 id="Way-to-transfer-function-parameters"><a href="#Way-to-transfer-function-parameters" class="headerlink" title="Way to transfer function parameters"></a>Way to transfer function parameters</h3><ol>
+<li>By value:<ul>
+<li>Data transfer is one-way. In a word, we can but transfer the value of aruguments to parameters and not if we don’t.</li>
+<li>In the transferring process, the value of aruguments doesn’t change with changing the value of parameters.</li>
+</ul>
+</li>
+<li>By address(pointer):<ul>
+<li>We can modify the variable value actual parameter pointer points to by formal parameter pointer.  </li>
+</ul>
+</li>
+</ol>
+<h3 id="Pointers-to-pointers"><a href="#Pointers-to-pointers" class="headerlink" title="Pointers to pointers"></a>Pointers to pointers</h3><ol>
+<li>Concept of pointers to pointers: In a word, it is a pointer to a pointer and its value is the address of a pointer.</li>
+<li>Definition and initialization of pointers to pointers: <code>DataType **Pointer2Name = &amp;Pointer1Name;</code></li>
+</ol>
+<h3 id="Constant-pointer-and-pointer-constant"><a href="#Constant-pointer-and-pointer-constant" class="headerlink" title="Constant pointer and pointer constant"></a>Constant pointer and pointer constant</h3><ol>
+<li>Concept of constant pointer: In short, it is a pointer to a constant and the variable value it points to can not be changed.</li>
+<li>Definition of constant pointer: <code>DataType const *PointerName</code></li>
+<li>Usage of constant pointer: It is usually used to deny to modify the variable value the aruguments points to when calling function. </li>
+<li>Concept of pointer constant: In short, it is a pointer whose value can’t be changed while the variable value it points to can be changed.</li>
+<li>Definition of pointer constant: <code>DataType *const PointerName</code></li>
+</ol>
 <h2 id="Supplement"><a href="#Supplement" class="headerlink" title="Supplement"></a>Supplement</h2><h3 id="Generating-random-number"><a href="#Generating-random-number" class="headerlink" title="Generating random number"></a>Generating random number</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    srand(time(<span class="number">0</span>));</span><br><span class="line">    <span class="keyword">int</span> a = rand()%<span class="number">90</span>+<span class="number">10</span>; <span class="comment">//represent 10~99</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Do-not-display-password"><a href="#Do-not-display-password" class="headerlink" title="Do not display password"></a>Do not display password</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *password;</span><br><span class="line">    password = getpass(<span class="string">"Input password:"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The password is: %s\n"</span>,password);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* another way */</span></span><br><span class="line">system(<span class="string">"stty -echo"</span>);</span><br><span class="line">system(<span class="string">"stty echo"</span>);</span><br></pre></td></tr></table></figure>
 
@@ -970,7 +947,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-of-C-Language"><span class="nav-number">1.</span> <span class="nav-text">Introduction of C Language</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Program-algorithm-and-flow-chart"><span class="nav-number">1.1.</span> <span class="nav-text">Program, algorithm and flow chart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Development-of-computer-language"><span class="nav-number">1.2.</span> <span class="nav-text">Development of computer language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-first-C-program"><span class="nav-number">1.3.</span> <span class="nav-text">The first C program</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Annotation-in-C-language-—-account-for-about-20-of-the-source-code"><span class="nav-number">1.4.</span> <span class="nav-text">Annotation in C language —- account for about 20% of the source code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Development-process-of-C-program"><span class="nav-number">1.5.</span> <span class="nav-text">Development process of C program</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GCC-and-GDB"><span class="nav-number">2.</span> <span class="nav-text">GCC and GDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Usage-of-GCC"><span class="nav-number">2.1.</span> <span class="nav-text">Usage of GCC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-usage-of-GDB"><span class="nav-number">2.2.</span> <span class="nav-text">The usage of GDB</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primary-data-type"><span class="nav-number">3.</span> <span class="nav-text">Primary data type</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constants-and-variables"><span class="nav-number">3.1.</span> <span class="nav-text">Constants and variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-type"><span class="nav-number">3.2.</span> <span class="nav-text">Data type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Formatted-input-output-functions"><span class="nav-number">3.3.</span> <span class="nav-text">Formatted input/output functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-only-variable-and-constant"><span class="nav-number">3.4.</span> <span class="nav-text">Read-only variable and constant</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-study"><span class="nav-number">3.5.</span> <span class="nav-text">Case study</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conditional-structure"><span class="nav-number">4.</span> <span class="nav-text">Conditional structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntactic-structure"><span class="nav-number">4.1.</span> <span class="nav-text">Syntactic structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-study-1"><span class="nav-number">4.2.</span> <span class="nav-text">Case study</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cycle-control"><span class="nav-number">5.</span> <span class="nav-text">Cycle control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-introduction-of-cycle-control"><span class="nav-number">5.1.</span> <span class="nav-text">The introduction of cycle control</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntactic-structure-1"><span class="nav-number">5.2.</span> <span class="nav-text">Syntactic structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nested-loop"><span class="nav-number">5.3.</span> <span class="nav-text">Nested loop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operator-and-expression"><span class="nav-number">6.</span> <span class="nav-text">Operator and expression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-introduction-of-operator"><span class="nav-number">6.1.</span> <span class="nav-text">The introduction of operator:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Type-conversion"><span class="nav-number">6.2.</span> <span class="nav-text">Type conversion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-basic-knowledge-of-function"><span class="nav-number">7.</span> <span class="nav-text">The basic knowledge of function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-advantage-and-classification-of-function"><span class="nav-number">7.1.</span> <span class="nav-text">The advantage and classification of function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-definition-and-calling-of-function"><span class="nav-number">7.2.</span> <span class="nav-text">The definition and calling of function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Concept-and-declaration-of-function-prototype"><span class="nav-number">7.3.</span> <span class="nav-text">Concept and declaration of function prototype</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array"><span class="nav-number">8.</span> <span class="nav-text">Array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#One-dimensional-array"><span class="nav-number">8.1.</span> <span class="nav-text">One-dimensional array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-dimensional-array"><span class="nav-number">8.2.</span> <span class="nav-text">Two-dimensional array</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#High-quality-coding-specification"><span class="nav-number">9.</span> <span class="nav-text">High quality coding specification</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Macro-coding-specification"><span class="nav-number">9.1.</span> <span class="nav-text">Macro coding specification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Micro-coding-specification"><span class="nav-number">9.2.</span> <span class="nav-text">Micro coding specification</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supplement"><span class="nav-number">10.</span> <span class="nav-text">Supplement</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Generating-random-number"><span class="nav-number">10.1.</span> <span class="nav-text">Generating random number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Do-not-display-password"><span class="nav-number">10.2.</span> <span class="nav-text">Do not display password</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-of-C-Language"><span class="nav-number">1.</span> <span class="nav-text">Introduction of C Language</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Program-algorithm-and-flow-chart"><span class="nav-number">1.1.</span> <span class="nav-text">Program, algorithm and flow chart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Development-of-computer-language"><span class="nav-number">1.2.</span> <span class="nav-text">Development of computer language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-first-C-program"><span class="nav-number">1.3.</span> <span class="nav-text">The first C program</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Annotation-in-C-language-—-account-for-about-20-of-the-source-code"><span class="nav-number">1.4.</span> <span class="nav-text">Annotation in C language —- account for about 20% of the source code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Development-process-of-C-program"><span class="nav-number">1.5.</span> <span class="nav-text">Development process of C program</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primary-data-type"><span class="nav-number">2.</span> <span class="nav-text">Primary data type</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constants-and-variables"><span class="nav-number">2.1.</span> <span class="nav-text">Constants and variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-type"><span class="nav-number">2.2.</span> <span class="nav-text">Data type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Formatted-input-output-functions"><span class="nav-number">2.3.</span> <span class="nav-text">Formatted input/output functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-only-variable-and-constant"><span class="nav-number">2.4.</span> <span class="nav-text">Read-only variable and constant</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-study"><span class="nav-number">2.5.</span> <span class="nav-text">Case study</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conditional-structure"><span class="nav-number">3.</span> <span class="nav-text">Conditional structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntactic-structure"><span class="nav-number">3.1.</span> <span class="nav-text">Syntactic structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-study-1"><span class="nav-number">3.2.</span> <span class="nav-text">Case study</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cycle-control"><span class="nav-number">4.</span> <span class="nav-text">Cycle control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-introduction-of-cycle-control"><span class="nav-number">4.1.</span> <span class="nav-text">The introduction of cycle control</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntactic-structure-1"><span class="nav-number">4.2.</span> <span class="nav-text">Syntactic structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nested-loop"><span class="nav-number">4.3.</span> <span class="nav-text">Nested loop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operator-and-expression"><span class="nav-number">5.</span> <span class="nav-text">Operator and expression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-introduction-of-operator"><span class="nav-number">5.1.</span> <span class="nav-text">The introduction of operator:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Type-conversion"><span class="nav-number">5.2.</span> <span class="nav-text">Type conversion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-basic-knowledge-of-function"><span class="nav-number">6.</span> <span class="nav-text">The basic knowledge of function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-advantage-and-classification-of-function"><span class="nav-number">6.1.</span> <span class="nav-text">The advantage and classification of function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-definition-and-calling-of-function"><span class="nav-number">6.2.</span> <span class="nav-text">The definition and calling of function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Concept-and-declaration-of-function-prototype"><span class="nav-number">6.3.</span> <span class="nav-text">Concept and declaration of function prototype</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array"><span class="nav-number">7.</span> <span class="nav-text">Array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#One-dimensional-array"><span class="nav-number">7.1.</span> <span class="nav-text">One-dimensional array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-dimensional-array"><span class="nav-number">7.2.</span> <span class="nav-text">Two-dimensional array</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#High-quality-coding-specification"><span class="nav-number">8.</span> <span class="nav-text">High quality coding specification</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Macro-coding-specification"><span class="nav-number">8.1.</span> <span class="nav-text">Macro coding specification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Micro-coding-specification"><span class="nav-number">8.2.</span> <span class="nav-text">Micro coding specification</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-knowledge-of-pointer"><span class="nav-number">9.</span> <span class="nav-text">Basic knowledge of pointer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-pointer"><span class="nav-number">9.1.</span> <span class="nav-text">Introduction of pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Segmentation-fault"><span class="nav-number">9.2.</span> <span class="nav-text">Segmentation fault</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Way-to-transfer-function-parameters"><span class="nav-number">9.3.</span> <span class="nav-text">Way to transfer function parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pointers-to-pointers"><span class="nav-number">9.4.</span> <span class="nav-text">Pointers to pointers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constant-pointer-and-pointer-constant"><span class="nav-number">9.5.</span> <span class="nav-text">Constant pointer and pointer constant</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supplement"><span class="nav-number">10.</span> <span class="nav-text">Supplement</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Generating-random-number"><span class="nav-number">10.1.</span> <span class="nav-text">Generating random number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Do-not-display-password"><span class="nav-number">10.2.</span> <span class="nav-text">Do not display password</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -1128,12 +1105,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">71k</span>
+    <span title="Symbols count total">68k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:05</span>
+    <span title="Reading time total">1:01</span>
 </div>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>

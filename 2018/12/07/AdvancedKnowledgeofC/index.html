@@ -71,18 +71,18 @@
     }
 </style>
 
-  <meta name="description" content="Practice makes perfect.   Basic knowledge of pointerIntroduction of pointer Role of pointer: Represent complex data structures effectively Easy to use arrays and stings Make function parameter passing">
+  <meta name="description" content="Practice makes perfect.   Advanced knowledge of functionMemory management mechanism in Linux Three principle of Von Neumann System:  A computer consists of calculator, controller, storage, input devic">
 <meta name="keywords" content="C Language,Advanced Knowledge">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Advanced Knowledge of C Language">
 <meta property="og:url" content="http://youthfaith.cn/2018/12/07/AdvancedKnowledgeofC/index.html">
 <meta property="og:site_name" content="YouthFaith&#39;s Blog">
-<meta property="og:description" content="Practice makes perfect.   Basic knowledge of pointerIntroduction of pointer Role of pointer: Represent complex data structures effectively Easy to use arrays and stings Make function parameter passing">
+<meta property="og:description" content="Practice makes perfect.   Advanced knowledge of functionMemory management mechanism in Linux Three principle of Von Neumann System:  A computer consists of calculator, controller, storage, input devic">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-28T02:59:18.255Z">
+<meta property="og:updated_time" content="2019-08-30T01:40:34.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Advanced Knowledge of C Language">
-<meta name="twitter:description" content="Practice makes perfect.   Basic knowledge of pointerIntroduction of pointer Role of pointer: Represent complex data structures effectively Easy to use arrays and stings Make function parameter passing">
+<meta name="twitter:description" content="Practice makes perfect.   Advanced knowledge of functionMemory management mechanism in Linux Three principle of Von Neumann System:  A computer consists of calculator, controller, storage, input devic">
   <link rel="canonical" href="http://youthfaith.cn/2018/12/07/AdvancedKnowledgeofC/">
 
 
@@ -315,7 +315,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-28 10:59:18" itemprop="dateModified" datetime="2019-08-28T10:59:18+08:00">2019-08-28</time>
+                <time title="Modified: 2019-08-30 09:40:34" itemprop="dateModified" datetime="2019-08-30T09:40:34+08:00">2019-08-30</time>
               </span>
             
           
@@ -350,7 +350,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span>41k</span>
+              <span>39k</span>
             </span>
           
             <span class="post-meta-item" title="Reading time">
@@ -360,7 +360,7 @@
               
                 <span class="post-meta-item-text">Reading time &asymp;</span>
               
-              <span>37 mins.</span>
+              <span>36 mins.</span>
             </span>
           
 
@@ -375,96 +375,26 @@
       
         <blockquote class="blockquote-center"><p>Practice makes perfect. </p>
 </blockquote>
-<h2 id="Basic-knowledge-of-pointer"><a href="#Basic-knowledge-of-pointer" class="headerlink" title="Basic knowledge of pointer"></a>Basic knowledge of pointer</h2><h3 id="Introduction-of-pointer"><a href="#Introduction-of-pointer" class="headerlink" title="Introduction of pointer"></a>Introduction of pointer</h3><ol>
-<li>Role of pointer:<ul>
-<li>Represent complex data structures effectively</li>
-<li>Easy to use arrays and stings</li>
-<li>Make function parameter passing more flexible</li>
-<li>Able to deal with memory address</li>
-</ul>
-</li>
-<li><p>Concept of pointer:</p>
-<ul>
-<li><p>The memory is addressed in bytes and one memory cell occupies one byte.</p>
-</li>
-<li><p>One variable, whose address is represented by the address of the first byte, corresponds to one storage cell and occupies a certain number of bytes.</p>
-</li>
-<li><p>Pointer is a variable, whose value is the address of another variable it points to. And a pointer variable is simply called a pointer. </p>
-<a id="more"></a></li>
-</ul>
-</li>
-<li>Definition of pointer:<ul>
-<li>Format: <code>DataType *PointerName;</code>, where <strong>DataType</strong> represents type of variable which the pointer points to.  </li>
-<li><code>*</code> is pointer operator.</li>
-<li>Size: No matter what a pointer point to, its size is the same as one machine word-length.</li>
-</ul>
-</li>
-<li>Initialization of point:<ul>
-<li>Format: <code>PointName = NULL;</code>, where <strong>NULL</strong> is equal to zero and it indicates the pointer points to nothing. <code>PointerName = &amp;VariableNAme;</code>.</li>
-<li>Of course, we can define and initialize at the same time.</li>
-</ul>
-</li>
-<li>Addition and subtraction operation: We can move the pointer by add and sub operation.</li>
-<li>Name of array:<ul>
-<li>Name of array is a storage cell address of the first element address in the array.</li>
-<li>Name of array is a constant and disable to be reassigned.</li>
-<li>We can get another element in the array using offset.</li>
-</ul>
-</li>
-<li>Traversal method of array:<ul>
-<li>Subscript method: <code>ArrayName[Subscript]</code></li>
-<li>Pointer method: <code>*(ArrayName+Subsript)</code></li>
-</ul>
-</li>
-</ol>
-<h3 id="Segmentation-fault"><a href="#Segmentation-fault" class="headerlink" title="Segmentation fault"></a>Segmentation fault</h3><ol>
-<li><p>Concept and cause of segmentation fault: </p>
-<ul>
-<li><p>A segmentation fault occurs when a program attempts to access a memory location that it is not allowed to access, or attempts to access a memory location in a way that is not allowed (e.g., attempts to write to a read-only location, or to overwrite part of the operating system). </p>
-</li>
-<li><p>Common case: overwrite nil pointer, access a nonexistent memory location, access a system-protected memory location and modify variables in the constant area.</p>
-</li>
-</ul>
-</li>
-<li><p>Common ways to avoid segmentation fault:</p>
-<ul>
-<li>Better to initialize variables when defining them</li>
-<li>Do not overstep the boundary of any array </li>
-<li>Avoid to overwrite some protected or nonexistent memory cell</li>
-</ul>
-</li>
-</ol>
-<h3 id="Way-to-transfer-function-parameters"><a href="#Way-to-transfer-function-parameters" class="headerlink" title="Way to transfer function parameters"></a>Way to transfer function parameters</h3><ol>
-<li>By value:<ul>
-<li>Data transfer is one-way. In a word, we can but transfer the value of aruguments to parameters and not if we don’t.</li>
-<li>In the transferring process, the value of aruguments doesn’t change with changing the value of parameters.</li>
-</ul>
-</li>
-<li>By address(pointer):<ul>
-<li>We can modify the variable value actual parameter pointer points to by formal parameter pointer.  </li>
-</ul>
-</li>
-</ol>
-<h3 id="Pointers-to-pointers"><a href="#Pointers-to-pointers" class="headerlink" title="Pointers to pointers"></a>Pointers to pointers</h3><ol>
-<li><p>Concept of pointers to pointers: In a word, it is a pointer to a pointer and its value is the address of a pointer.</p>
-</li>
-<li><p>Definition and initialization of pointers to pointers: <code>DataType **Pointer2Name = &amp;Pointer1Name;</code></p>
-</li>
-</ol>
-<h3 id="Constant-pointer-and-pointer-constant"><a href="#Constant-pointer-and-pointer-constant" class="headerlink" title="Constant pointer and pointer constant"></a>Constant pointer and pointer constant</h3><ol>
-<li><p>Concept of constant pointer: In short, it is a pointer to a constant and the variable value it points to can not be changed.</p>
-</li>
-<li><p>Definition of constant pointer: <code>DataType const *PointerName</code></p>
-</li>
-<li><p>Usage of constant pointer: It is usually used to deny to modify the variable value the aruguments points to when calling function. </p>
-</li>
-<li><p>Concept of pointer constant: In short, it is a pointer whose value can’t be changed while the variable value it points to can be changed.</p>
-</li>
-<li><p>Definition of pointer constant: <code>DataType *const PointerName</code></p>
-</li>
-</ol>
 <h2 id="Advanced-knowledge-of-function"><a href="#Advanced-knowledge-of-function" class="headerlink" title="Advanced knowledge of function"></a>Advanced knowledge of function</h2><h3 id="Memory-management-mechanism-in-Linux"><a href="#Memory-management-mechanism-in-Linux" class="headerlink" title="Memory management mechanism in Linux"></a>Memory management mechanism in Linux</h3><ol>
-<li>Von Neumann System: calculator, controller, storage, input device and output device.</li>
+<li>Three principle of Von Neumann System: <ul>
+<li>A computer consists of calculator, controller, storage, input device and output device.</li>
+<li>Programs and data are indiscriminately stored into storage in binary code, whose location is determined by their address.</li>
+<li>The controller operates according to a sequence of instructions(programs) stored in memory and is controlled by a program counter(<strong>PC</strong>) to execute the instructions one by one.</li>
+</ul>
+</li>
+<li>Running process: code edit $\Rightarrow$ compile $\Rightarrow$ link $\Rightarrow$ load $\Rightarrow$ run<ul>
+<li>Classification of linking: generate logical address<ul>
+<li>Static linking: use <code>gcc -static</code> to link object file into executable file and <code>ar -rc LibraryFile ObjectFile/SourceFile</code> to generate static library file whose prefix is <strong>lib</strong> and suffix is <strong>.a</strong></li>
+<li>Dynamic linking during loading or running: use <code>gcc -fPIC -shared ObjectFile/SourceFile -o LibraryFile</code> to generate dynamic library file whose prefix is <strong>lib</strong> and suffix is <strong>.so</strong><a id="more"></a></li>
+</ul>
+</li>
+<li>Classification of loading: generate physical address<ul>
+<li>Absolute loading: It’s only used in single batch program environment.</li>
+<li>Static location and dynamic location: It’s usually used in multichannel Batch processing system,  and the formal happens during load and the latter during running. And we can use <code>ldconfig directory</code> to create the necessary links and cache to the most recent shared libraries found in the directories specified on the command line and use <code>ldd ExecutableFile</code> to print the shared objects(shared libraries) required by each program or shared object specified on the command line.</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>Virtual memory: <ul>
 <li>System allocates a virtual memory area to make processes independent with virtual addresses.</li>
 <li><code>/proc/cpuinfo</code>: a collection of CPU and system architecture dependent items, for each supported  architecture  a  different list. A 64-bit computers allocate 48 bits of virtual memory space(50% user space: <code>0x0000000000000000~0x00007FFFFFFFFFFF</code> and 50 % kernel space: <code>0xFFFF800000000000~ 0xFFFFFFFFFFFFFFFF</code>).</li>
@@ -482,7 +412,7 @@
 <li>Dynamic memory allocation, like <code>malloc</code> and <code>relloc</code></li>
 </ul>
 </li>
-<li><code>data segment</code>: static storage area(global variable and static variable) and constant area  </li>
+<li><code>data segment</code>: static storage area(global variable and static variable) and constant area </li>
 <li><code>code segment</code>: code area</li>
 </ul>
 </li>
@@ -1012,7 +942,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-knowledge-of-pointer"><span class="nav-number">1.</span> <span class="nav-text">Basic knowledge of pointer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-pointer"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction of pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Segmentation-fault"><span class="nav-number">1.2.</span> <span class="nav-text">Segmentation fault</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Way-to-transfer-function-parameters"><span class="nav-number">1.3.</span> <span class="nav-text">Way to transfer function parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pointers-to-pointers"><span class="nav-number">1.4.</span> <span class="nav-text">Pointers to pointers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constant-pointer-and-pointer-constant"><span class="nav-number">1.5.</span> <span class="nav-text">Constant pointer and pointer constant</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Advanced-knowledge-of-function"><span class="nav-number">2.</span> <span class="nav-text">Advanced knowledge of function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-management-mechanism-in-Linux"><span class="nav-number">2.1.</span> <span class="nav-text">Memory management mechanism in Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scope-and-storage-type"><span class="nav-number">2.2.</span> <span class="nav-text">Scope and storage type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Calling"><span class="nav-number">2.3.</span> <span class="nav-text">Function Calling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-function-pointer"><span class="nav-number">2.4.</span> <span class="nav-text">Introduction of function pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-variable-argument-list"><span class="nav-number">2.5.</span> <span class="nav-text">Introduction of variable argument list</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Knowledge-of-string"><span class="nav-number">3.</span> <span class="nav-text">Knowledge of string</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-character-array"><span class="nav-number">3.1.</span> <span class="nav-text">Introduction of character array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-string"><span class="nav-number">3.2.</span> <span class="nav-text">Introduction of string</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Standard-library-function-in-C-language"><span class="nav-number">4.</span> <span class="nav-text">Standard library function in C language</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-functions-in-stdlib-h"><span class="nav-number">4.1.</span> <span class="nav-text">Common functions in stdlib.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-functions-in-math-h"><span class="nav-number">4.2.</span> <span class="nav-text">Common functions in math.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-functions-in-time-h"><span class="nav-number">4.3.</span> <span class="nav-text">Common functions in time.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-study"><span class="nav-number">4.4.</span> <span class="nav-text">Case study</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Structure-and-union"><span class="nav-number">5.</span> <span class="nav-text">Structure and union</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-structure"><span class="nav-number">5.1.</span> <span class="nav-text">Introduction of structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Byte-alignment"><span class="nav-number">5.2.</span> <span class="nav-text">Byte alignment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-union"><span class="nav-number">5.3.</span> <span class="nav-text">Introduction of union</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Difference-between-typedef-and-define"><span class="nav-number">5.4.</span> <span class="nav-text">Difference between typedef and define</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Advanced-knowledge-of-pointer"><span class="nav-number">6.</span> <span class="nav-text">Advanced knowledge of pointer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Untyped-pointer"><span class="nav-number">6.1.</span> <span class="nav-text">Untyped pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-dimensional-array"><span class="nav-number">6.2.</span> <span class="nav-text">Two-dimensional array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pointer-array"><span class="nav-number">6.3.</span> <span class="nav-text">Pointer array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-study-1"><span class="nav-number">6.4.</span> <span class="nav-text">Case study</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-memory-allocation"><span class="nav-number">7.</span> <span class="nav-text">Dynamic memory allocation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-memory-allocation"><span class="nav-number">7.1.</span> <span class="nav-text">Introduction of memory allocation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-dynamic-memory-allocation"><span class="nav-number">7.2.</span> <span class="nav-text">Introduction of dynamic memory allocation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Preprocess-in-C-language"><span class="nav-number">8.</span> <span class="nav-text">Preprocess in C language</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-preprocess"><span class="nav-number">8.1.</span> <span class="nav-text">Introduction of preprocess</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Macro-substitution"><span class="nav-number">8.2.</span> <span class="nav-text">Macro substitution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conditional-compile"><span class="nav-number">8.3.</span> <span class="nav-text">Conditional compile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File-including"><span class="nav-number">8.4.</span> <span class="nav-text">File including</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#File-system"><span class="nav-number">9.</span> <span class="nav-text">File system</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-file-system"><span class="nav-number">9.1.</span> <span class="nav-text">Introduction of file system</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-file-pointer"><span class="nav-number">9.2.</span> <span class="nav-text">Introduction of file pointer</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Advanced-knowledge-of-function"><span class="nav-number">1.</span> <span class="nav-text">Advanced knowledge of function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-management-mechanism-in-Linux"><span class="nav-number">1.1.</span> <span class="nav-text">Memory management mechanism in Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scope-and-storage-type"><span class="nav-number">1.2.</span> <span class="nav-text">Scope and storage type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Calling"><span class="nav-number">1.3.</span> <span class="nav-text">Function Calling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-function-pointer"><span class="nav-number">1.4.</span> <span class="nav-text">Introduction of function pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-variable-argument-list"><span class="nav-number">1.5.</span> <span class="nav-text">Introduction of variable argument list</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Knowledge-of-string"><span class="nav-number">2.</span> <span class="nav-text">Knowledge of string</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-character-array"><span class="nav-number">2.1.</span> <span class="nav-text">Introduction of character array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-string"><span class="nav-number">2.2.</span> <span class="nav-text">Introduction of string</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Standard-library-function-in-C-language"><span class="nav-number">3.</span> <span class="nav-text">Standard library function in C language</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-functions-in-stdlib-h"><span class="nav-number">3.1.</span> <span class="nav-text">Common functions in stdlib.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-functions-in-math-h"><span class="nav-number">3.2.</span> <span class="nav-text">Common functions in math.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-functions-in-time-h"><span class="nav-number">3.3.</span> <span class="nav-text">Common functions in time.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-study"><span class="nav-number">3.4.</span> <span class="nav-text">Case study</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Structure-and-union"><span class="nav-number">4.</span> <span class="nav-text">Structure and union</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-structure"><span class="nav-number">4.1.</span> <span class="nav-text">Introduction of structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Byte-alignment"><span class="nav-number">4.2.</span> <span class="nav-text">Byte alignment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-union"><span class="nav-number">4.3.</span> <span class="nav-text">Introduction of union</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Difference-between-typedef-and-define"><span class="nav-number">4.4.</span> <span class="nav-text">Difference between typedef and define</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Advanced-knowledge-of-pointer"><span class="nav-number">5.</span> <span class="nav-text">Advanced knowledge of pointer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Untyped-pointer"><span class="nav-number">5.1.</span> <span class="nav-text">Untyped pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-dimensional-array"><span class="nav-number">5.2.</span> <span class="nav-text">Two-dimensional array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pointer-array"><span class="nav-number">5.3.</span> <span class="nav-text">Pointer array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-study-1"><span class="nav-number">5.4.</span> <span class="nav-text">Case study</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-memory-allocation"><span class="nav-number">6.</span> <span class="nav-text">Dynamic memory allocation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-memory-allocation"><span class="nav-number">6.1.</span> <span class="nav-text">Introduction of memory allocation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-dynamic-memory-allocation"><span class="nav-number">6.2.</span> <span class="nav-text">Introduction of dynamic memory allocation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Preprocess-in-C-language"><span class="nav-number">7.</span> <span class="nav-text">Preprocess in C language</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-preprocess"><span class="nav-number">7.1.</span> <span class="nav-text">Introduction of preprocess</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Macro-substitution"><span class="nav-number">7.2.</span> <span class="nav-text">Macro substitution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conditional-compile"><span class="nav-number">7.3.</span> <span class="nav-text">Conditional compile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File-including"><span class="nav-number">7.4.</span> <span class="nav-text">File including</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#File-system"><span class="nav-number">8.</span> <span class="nav-text">File system</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-file-system"><span class="nav-number">8.1.</span> <span class="nav-text">Introduction of file system</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-file-pointer"><span class="nav-number">8.2.</span> <span class="nav-text">Introduction of file pointer</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -1170,12 +1100,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">71k</span>
+    <span title="Symbols count total">68k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:05</span>
+    <span title="Reading time total">1:01</span>
 </div>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
