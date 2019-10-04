@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="Mfi9qKlk-eXPFCoKeaSQS9tInGifF_4VftSzH9ucoss">
+  <meta name="baidu-site-verification" content="LcRNZHLxU2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: true,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: './public/search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #00CDCD;
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #00CDCD, 0 0 5px #00CDCD; 
+    }
+    .pace .pace-activity {
+        border-top-color: #00CDCD;    
+        border-left-color: #00CDCD;    
+    }
+</style>
+
+  <meta name="description" content="dog $\sim$ Sin dog  Introduction of C LanguageProgram = Algorithm + Data Structure Concept of the program: as a translator between computer language and human language, it is a collection of instructi">
+<meta name="keywords" content="Basic Knowledge,C Language">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Basic Knowledge of C Language">
+<meta property="og:url" content="http://youthfaith.cn/2018/10/07/BasicKnowledgeofC/index.html">
+<meta property="og:site_name" content="YouthFaith&#39;s Blog">
+<meta property="og:description" content="dog $\sim$ Sin dog  Introduction of C LanguageProgram = Algorithm + Data Structure Concept of the program: as a translator between computer language and human language, it is a collection of instructi">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-04T05:36:10.456Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Basic Knowledge of C Language">
+<meta name="twitter:description" content="dog $\sim$ Sin dog  Introduction of C LanguageProgram = Algorithm + Data Structure Concept of the program: as a translator between computer language and human language, it is a collection of instructi">
+  <link rel="canonical" href="http://youthfaith.cn/2018/10/07/BasicKnowledgeofC/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Basic Knowledge of C Language | YouthFaith's Blog</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a href="https://github.com/YouthFaith" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouthFaith's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Welcome to My World!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+    
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-wrapper">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://youthfaith.cn/2018/10/07/BasicKnowledgeofC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YiHe Huang">
+      <meta itemprop="description" content="YouthFaith's Blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouthFaith's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Basic Knowledge of C Language
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2018-10-07 12:07:06" itemprop="dateCreated datePublished" datetime="2018-10-07T12:07:06+08:00">2018-10-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-04 13:36:10" itemprop="dateModified" datetime="2019-10-04T13:36:10+08:00">2019-10-04</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>36k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>33 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote class="blockquote-center"><p>dog $\sim$ Sin dog</p>
+</blockquote>
+<h2 id="Introduction-of-C-Language"><a href="#Introduction-of-C-Language" class="headerlink" title="Introduction of C Language"></a>Introduction of C Language</h2><h3 id="Program-Algorithm-Data-Structure"><a href="#Program-Algorithm-Data-Structure" class="headerlink" title="Program = Algorithm + Data Structure"></a>Program = Algorithm + Data Structure</h3><ol>
+<li>Concept of the program: as a translator between computer language and human language, it is a collection of instructions that performs a specific task when executed by a computer. Usually, A computer program is usually written by a computer programmer in a programming language. From the program in its human-readable form of source code, a compiler or assembler can derive machine code — a form consisting of instructions that the computer can directly execute. Alternatively, a computer program may be executed with the aid of an interpreter. A collection of computer programs, libraries, and related data are referred to as software. Computer programs may be categorized along functional lines, such as application software and system software. <a id="more"></a></li>
+<li>Concept of the algorithm: the underlying method used for some calculation or manipulation is known as an algorithm. To be specific, it is an accurate and complete description of a solution to a problem. As an effective method, an algorithm can be expressed within a finite amount of space and time and in a well-defined formal language for calculating a function. Starting from an initial state and initial input (perhaps empty), the instructions describe a computation that, when executed, proceeds through a finite number of well-defined successive states, eventually producing “output” and terminating at a final ending state. The transition from one state to the next is not necessarily deterministic; some algorithms, known as randomized algorithms, incorporate random input.</li>
+<li>Concept of the data structure: in computer science, it is a data organization, management, and storage format that enables efficient access and modification. More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data.</li>
+</ol>
+<h3 id="Development-of-Computer-Language"><a href="#Development-of-Computer-Language" class="headerlink" title="Development of Computer Language"></a>Development of Computer Language</h3><ol>
+<li>Machine language: consist of binary instructions for ‘0’ and ‘1’. It can be executed directly by a computer’s central processing unit (CPU). Each instruction causes the CPU to perform a very specific task, such as a load, a store, a jump, or an ALU operation on one or more units of data in CPU registers or memory.</li>
+<li>Assembly language: instructions described by mnemonic and it is any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture’s machine code instructions.</li>
+<li>High-level language: contain object-oriented or process-oriented languages. And C language, which belongs to process-oriented languages, is suitable for system-level development, but not application level.</li>
+</ol>
+<h3 id="The-First-C-Program"><a href="#The-First-C-Program" class="headerlink" title="The First C Program"></a>The First C Program</h3><ul>
+<li><p>A “Hello, World!” program generally is a computer program that outputs or displays the message “Hello, World!”. Such a program is very simple in most programming languages, and is often used to illustrate the basic syntax of a programming language. It is often the first program written by people learning to code</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Copyright (C) Free Software Foundation, Inc.</span></span><br><span class="line"><span class="comment"> * File name: main.c</span></span><br><span class="line"><span class="comment"> * Author: YouthFaith</span></span><br><span class="line"><span class="comment"> * Version: 1.0.0</span></span><br><span class="line"><span class="comment"> * Date: 2018/10/07</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello World!\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Comment-in-C-Language"><a href="#Comment-in-C-Language" class="headerlink" title="Comment in C Language"></a>Comment in C Language</h3><ol>
+<li><code>/* xxxxxx */</code>: multi-line comment.</li>
+<li><code>//xxx</code>: single-line comment.</li>
+<li>Usually used for<ul>
+<li>Announcement for version or copyright.</li>
+<li>Function description.</li>
+<li>Prompts of important lines or paragraphs.</li>
+</ul>
+</li>
+</ol>
+<h3 id="Development-Process-of-C-Program"><a href="#Development-Process-of-C-Program" class="headerlink" title="Development Process of C Program"></a>Development Process of C Program</h3><ol>
+<li>Requirements analysis: focus on the tasks that determine the needs or conditions to meet the new or altered product or project, taking account of the possibly conflicting requirements of the various stakeholders, analyzing, documenting, validating and managing software or system requirements.</li>
+<li>Software design: the process by which an agent creates a specification of a software artifact, intended to accomplish goals, using a set of primitive components and subject to constraints. Software design may refer to either “all the activity involved in conceptualizing, framing, implementing, commissioning, and ultimately modifying complex systems” or “the activity following requirements specification and before programming, as … [in] a stylized software engineering process.”</li>
+<li>Implement<ul>
+<li>Write program code: generate source file with “.c “as file extension.</li>
+<li>Compile source file: generate target file with “.o” as file extension.</li>
+<li>Link object file: generate executable files.</li>
+</ul>
+</li>
+<li>Testing: an investigation conducted to provide stakeholders with information about the quality of the software product or service under test. Software testing can also provide an objective, independent view of the software to allow the business to appreciate and understand the risks of software implementation. Test techniques include the process of executing a program or application with the intent of finding software bugs (errors or other defects), and verifying that the software product is fit for use.</li>
+<li>Deployment: all of the activities that make a software system available for use.</li>
+<li>Maintenance: the modification of a software product after delivery to correct faults, to improve performance or other attributes.</li>
+</ol>
+<h2 id="Primary-Data-Type"><a href="#Primary-Data-Type" class="headerlink" title="Primary Data Type"></a>Primary Data Type</h2><h3 id="Constants-and-Variables"><a href="#Constants-and-Variables" class="headerlink" title="Constants and Variables"></a>Constants and Variables</h3><ol>
+<li>Constant: A variable whose value can not be changed during the execution and can be used directly without declaration.<ul>
+<li>Contains direct constant (integer constant, float constant, character constant and string constant) and symbolic constant (use <strong>#define</strong> keyword to declare).</li>
+<li>The function of symbolic constant<ul>
+<li>Accurate Meaning.</li>
+<li>One changes, all change.</li>
+</ul>
+</li>
+<li>Specially, macro with parameters is just statement substitution in the preprocessing phase.</li>
+</ul>
+</li>
+<li>Variable: A variable, whose value can be changed during the execution, represents a storage cell. One variable has one name and occupies certain storage unit in the memory.<ul>
+<li>Must be used after being declared.</li>
+<li>Declaration is classified into definitional declaration and referential declaration(use <strong>extern</strong> keyword to declare).</li>
+</ul>
+</li>
+<li>The naming rule of identifier: consist of letters, numbers and underline. Specially it must start with letters or underline, and be case sensitive.</li>
+<li>The declaration, initialization and definition of a variable<ul>
+<li>Declaration: declare type and name to the compiler without allocating storage space (referential declaration). Format: <code>DataType VariableName;</code>.</li>
+<li>Definition and initialization: declare type and name with allocating storage space. Format: <code>DataType VariableName = Value;</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="Data-Type"><a href="#Data-Type" class="headerlink" title="Data Type"></a>Data Type</h3><ol>
+<li>The primary data type is classified into: basic data type (<strong>int</strong>, <strong>float</strong>, <strong>char</strong> and <strong>enum</strong>), structure data type (<strong>array</strong>, <strong>struct</strong>, <strong>union</strong>), pointer data type (<strong>*</strong>) and generic data type (<strong>void</strong>).</li>
+<li>We can use <strong>sizeof</strong> keyword to view the bytes the variable occupies in memory.</li>
+<li><p>Integer (<strong>short</strong>, <strong>int</strong>, <strong>long</strong>): When the assignment is out of range, the assignment is restarted, such as 65536 in short is 0.</p>
+<ul>
+<li><p>Integers are stored in memory in the form of complemental code, such as the storage form of <code>int i = 10;</code> in memory is <code>[ 0000 0000 0000 0000 0000 0000 0000 1010 ]</code>(4B in total), and the storage form of <code>int i = -10;</code> in memory is <code>[ 1111 1111 1111 1111 1111 1111 1111 0110 ]</code>(4B in total).</p>
+</li>
+<li><p><strong>%d</strong> (decimal), <strong>%o</strong> (octal), <strong>%x</strong> (hexadecimal), <strong>%e</strong> (scientific notation), <strong>%f</strong> (float).</p>
+</li>
+<li><p>short (2B), unsigned short (2B), int (4B), unsigned (4B), long (8B), unsigned long (8B) —- based on a 64-bit computer as shown in <strong>limits.h</strong> header file.</p>
+</li>
+</ul>
+</li>
+<li>Character (char): The character type is enclosed in single quotation marks, corresponding to the ASCII (1B in total);<ul>
+<li>In computing, an escape character is a character which invokes an alternative interpretation on subsequent characters in a character sequence. An escape character is a particular case of meta-characters. Generally, the judgment of whether something is an escape character or not depends on context. In many programming languages, an escape character also forms some escape sequences which are referred to control characters. For example, line break has an escape sequence of <strong>\n</strong>.</li>
+<li>String variable: enclosed in double quotation marks, and is able to contain one or more characters. We use a character array to store a string variable with <strong>\0</strong> ending tag.</li>
+<li>String array: <code>char StringName[] = &quot;String\0&quot;;</code>.</li>
+</ul>
+</li>
+<li>Float and double type<ul>
+<li>Float constant: decimal form and exponential form.</li>
+<li>The way to store: IEEE 754. It is divided into: <strong>S</strong> (sign), <strong>E</strong> (exponent-marker), <strong>M</strong> (mantissa), and exponent-marker is represented by frame shift with 127 offset. </li>
+<li>Float is 32-bit and double is 64-bit.</li>
+</ul>
+</li>
+<li>Enumerated type<ul>
+<li>The declaration format: <code>enum EnumName{Value1, Value2, ..., Valuen};</code>.</li>
+<li>The definition format<ul>
+<li><code>enum EnumName VariableName;</code>.</li>
+<li><code>enum EnumName{Value1, Value2, ..., Valuen} VariableName;</code>.</li>
+<li><code>enum {Value1, Value2, ..., Valuen} VariableName;</code>.</li>
+</ul>
+</li>
+<li>Specially, enumerated type belongs to integer type, and its value is defined as 0, 1, 2, …, n.</li>
+</ul>
+</li>
+</ol>
+<h3 id="Formatted-Input-Output-Function"><a href="#Formatted-Input-Output-Function" class="headerlink" title="Formatted Input/Output Function"></a>Formatted Input/Output Function</h3><ol>
+<li>Buffer mechanism<ul>
+<li>The three types of buffering available are unbuffered, block buffered, and line buffered. When an output stream is unbuffered, information appears on the destination file or terminal as soon as written. When it is block buffered many characters are saved up and written as a block. When it is line buffered characters are saved up until a newline is output or input is read from any stream attached to a terminal device (typically <strong>stdin</strong>). The function <strong>fflush</strong> may be used to force the block out early or wait until the program ends. Of course, when the buffer is full, the output is automatically made.</li>
+<li>Normally all files are block buffered and we can use <strong>fclose</strong> to force the block out. If a stream refers to a terminal (as <strong>stdout</strong> normally does), it is line buffered. And when it encounters <strong>\n</strong>, it will automatically output. The standard error stream <strong>stderr</strong> is always unbuffered by default. </li>
+</ul>
+</li>
+<li><p>Standard input/output function</p>
+<ul>
+<li><p>Formatted output (<strong>*</strong> is used to define format) and formatted input (<strong>*</strong> is used to delay)</p>
+<ul>
+<li><p><code>int printf(const char *format, ...);</code> $\Rightarrow$ <code>printf(&quot;%[mark][output minimun width][.accuracy][long tag]type&quot;, VariableName);</code>.</p>
+</li>
+<li><p><code>int scanf(const char *format, ...);</code> $\Rightarrow$ <code>scanf(&quot;%[mark][input minimun width][long tag]type&quot;, VariableAddress);</code>.</p>
+</li>
+<li><p>Mark: <strong>-</strong> (align left, whitespace right), <strong>+</strong> (output signs), <strong>blank space</strong> (positive numbers with spaces, negative numbers with minus signs), <strong>#</strong> (formalize octal and hexadecimal numbers).</p>
+</li>
+<li><p>Long tag: <strong>h</strong> represents short integers and <strong>l</strong> represents long integers.</p>
+</li>
+<li><p>Type: <strong>d</strong> (decimal), <strong>o</strong> (octal), <strong>x</strong> (hexadecimal), <strong>f</strong> (float and double), <strong>e</strong> (scientific notation), <strong>c</strong> (char), <strong>s</strong> (string), <strong>p</strong> (address or pointer variable), <strong>g</strong> (only show significant digit).</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// calculate the area of a circle</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Please input a number for the radius of a circle:"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>, &amp;i);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The area of circle is: %.2f.\n"</span>, M_PI * i * i);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li>Common functions about input and output<ul>
+<li><code>int sscanf(const char *str, const char *format, ...);</code>: read its input from the character string pointed to by <em>str</em>. On success, it returns the number of input items successfully matched and assigned; this can be fewer than provided for, or even zero, in the event of an early matching failure. The value <strong>EOF</strong> is returned if the end of input is reached before either the first successful conversion or a matching failure occurs. <strong>EOF</strong> is also returned if a read error occurs, in which case the error indicator for the stream is set, and <em>errno</em> is set to indicate the error.</li>
+<li><code>int sprintf(char *str, const char *format, ...);</code>: write its output to the character string pointed to by <em>str</em>. Upon successful return, it returns the number of characters printed (excluding the null byte used to end output to strings) and If an output error is encountered, a negative value is returned.</li>
+<li><code>char *gets(char *s);</code>: read a line from <em>stdin</em> into the buffer pointed to by <em>s</em> until either a terminating newline or <strong>EOF</strong>, which it replaces with a null byte (<strong>\0</strong>). It return s on success, and <strong>NULL</strong> on error or when end of file occurs while no characters have been read. However, given the lack of buffer overrun checking, there can be no guarantees that the function will even return.</li>
+<li><code>int puts(const char *s);</code>: write the string <em>s</em> and a trailing newline to <em>stdout</em>. It returns a nonnegative number on success, or <strong>EOF</strong> on error.</li>
+<li><code>int getchar(void);</code>: equivalent to <u>fgetc</u>() except that it may be implemented as a macro which evaluates stream more than once. It returns the character read as an unsigned char cast to an int or <strong>EOF</strong> on end of file or error.</li>
+<li><code>int putchar(int c);</code>: equivalent to <u>fputc</u>() except that it may be implemented as a macro which evaluates stream more than once. It returns the character written as an unsigned char cast to an int or <strong>EOF</strong> on error.</li>
+<li>Common operation to clear the buffer<ul>
+<li><code>{char c = 0; while((c = getchar()) != &#39;\n&#39; &amp;&amp; c != EOF);}</code> </li>
+<li><code>int fflush(FILE *stream);</code>: it forces a write of all user-space buffered data for the given output or update stream via the stream’s underlying write function for output <em>streams</em>. And it discards any buffered data that has been fetched from the underlying file, but has not been consumed by the application for input streams associated with seekable files (e.g., disk files, but not pipes or terminals). Upon successful completion 0 is returned. Otherwise, <strong>EOF</strong> is returned and <em>errno</em> is set to indicate the error.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Read-only-Variable-and-Constant"><a href="#Read-only-Variable-and-Constant" class="headerlink" title="Read-only Variable and Constant"></a>Read-only Variable and Constant</h3><ol>
+<li>Read-only variable: a unchanged variable and its format is <code>const DataType VariableName = Value</code>.</li>
+<li>Read-only variable is a variable and it needs storage space, while constant not.</li>
+</ol>
+<h2 id="Conditional-Structure"><a href="#Conditional-Structure" class="headerlink" title="Conditional Structure"></a>Conditional Structure</h2><h3 id="If-then-else-Statement"><a href="#If-then-else-Statement" class="headerlink" title="If - then - else Statement"></a>If - then - else Statement</h3><ul>
+<li><p>Conditional statements, conditional expressions and conditional constructs are features of a programming language, which perform different computations or actions depending on whether a programmer-specified boolean <em>condition</em> evaluates to true or false. Apart from the case of branch predication, this is always achieved by selectively altering the control flow based on some condition.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( expression ) statement;</span><br><span class="line"><span class="keyword">if</span>( expression ) statement; <span class="keyword">else</span> statement;</span><br><span class="line"><span class="keyword">if</span>( expression1 ) statement1; <span class="keyword">else</span> <span class="keyword">if</span>( expression2 ) statement2; ... <span class="keyword">else</span> statementn;</span><br><span class="line"><span class="keyword">and</span> nesting of <span class="keyword">if</span> statement;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Specially, <strong>ctype.h</strong> header file contains some useful functions like <code>int isalpha(int c)</code>, <code>int isdigit(int c)</code>, <code>int ispunct(int c)</code>, <code>int islower(int c)</code>, <code>int isupper(int c)</code>, <code>int isspace(int c)</code>, <code>int toupper(int c)</code> and <code>int tolower(int c)</code>. The values returned are nonzero if the character <em>c</em> falls into the tested class, and zero if not.</p>
+</li>
+<li><p>C and C-like languages have a special ternary operator (?:) for conditional expressions with a function that may be described by a template like this.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expression1?expression2:expression3</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Case-and-Switch-Statement"><a href="#Case-and-Switch-Statement" class="headerlink" title="Case and Switch Statement"></a>Case and Switch Statement</h3><ul>
+<li><p>Switch statements (in some languages, case statements or multi-way branches) compare a given value with specified constants and take action according to the first constant to match. There is usually a provision for a default action (‘else’,’otherwise’) to be taken if no match succeeds. Switch statements can allow compiler optimizations, such as lookup tables. In dynamic languages, the cases may not be limited to constant expressions, and might extend to pattern matching, as in the shell script example on the right, where the ‘*)’ implements the default case as a regular expression matching any string.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>( expression --- the result must be integer )</span><br><span class="line">&#123;  </span><br><span class="line">    <span class="keyword">case</span> constant expression1:  statement1; <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> constant expression2: statement2; <span class="keyword">break</span>;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">default</span>: statementn; <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// implement bank function</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cmd = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">float</span> balance = <span class="number">0.0f</span>, deposit, withdraw;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"*** ACME checkbook-balancing program ***\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Commands: 0=clear, 1=deposit, 2=withdraw, 3=balance, 4=exit\n"</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter command:"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;cmd);</span><br><span class="line">        <span class="keyword">switch</span> (cmd) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">            balance = <span class="number">0.0f</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Clear finished!\n"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Enter amount of deposit: "</span>);</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%f"</span>, &amp;deposit);</span><br><span class="line">            balance += deposit;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Deposit finished!\n"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Enter amount of withdraw: "</span>);</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%f"</span>, &amp;withdraw);</span><br><span class="line">            <span class="keyword">if</span> (withdraw &gt; balance) &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"No enough momey!\n"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            balance -= withdraw;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Withdraw finished!\n"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Current balance: $%.2f\n"</span>, balance);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Commands: 0=clear, 1=deposit, 2=withdraw, 3=balance, 4=exit\</span></span><br><span class="line"><span class="string">n"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Cycle-Structure"><a href="#Cycle-Structure" class="headerlink" title="Cycle Structure"></a>Cycle Structure</h2><h3 id="While-Statement"><a href="#While-Statement" class="headerlink" title="While Statement"></a>While Statement</h3><ul>
+<li><p>A while loop is a control flow statement that allows code to be executed repeatedly based on a given Boolean condition. The while loop can be thought of as a repeating if statement.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>( expression )&#123; loop body&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Do-while-Statement"><a href="#Do-while-Statement" class="headerlink" title="Do-while Statement"></a>Do-while Statement</h3><ul>
+<li><p>A do while loop is a control flow statement that executes a block of code at least once, and then repeatedly executes the block, or not, depending on a given boolean condition at the end of the block.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123; loop body &#125;<span class="keyword">while</span>( expression );</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="For-Statement"><a href="#For-Statement" class="headerlink" title="For Statement"></a>For Statement</h3><ul>
+<li><p>A for-loop (or simply for loop) is a control flow statement for specifying iteration, which allows code to be executed repeatedly. A for-loop has two parts: a header specifying the iteration, and a body which is executed once per iteration. The header often declares an explicit loop counter or loop variable, which allows the body to know which iteration is being executed. For-loops are typically used when the number of iterations is known before entering the loop. For-loops can be thought of as shorthands for while-loops which increment and test a loop variable.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( expression1; expression2; expression3 ) &#123; loop body &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// print pyramid</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> line, i, j, k;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Please input a number for the line:"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;line);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; line; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (j = line - i; j &gt; <span class="number">1</span>; j--) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt; <span class="number">2</span> * i + <span class="number">1</span>; k++) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"*"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Specially, <strong>;</strong> can not be omitted while expression1, expression2 and expression3 can be omitted.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// print the multiplication table</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt;= i; j++) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d*%d=%02d "</span>, i, j, i * j);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Jump-Statement"><a href="#Jump-Statement" class="headerlink" title="Jump Statement"></a>Jump Statement</h3><ul>
+<li><p>It performs a one-way transfer of control to another line of code; in contrast a function call normally returns control. The jumped-to locations are usually identified using labels, though some languages use line numbers. </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Functions: </span><br><span class="line">	transfer control of the program <span class="keyword">and</span> changes the execution process of the program</span><br><span class="line"></span><br><span class="line"><span class="function">go <span class="title">to</span><span class="params">(unconditional jump, use with caution)</span></span></span><br><span class="line"><span class="function"><span class="title">break</span><span class="params">(jump out of the loop)</span></span></span><br><span class="line"><span class="function"><span class="title">continue</span><span class="params">(skip the remaining statements in the body of the loop <span class="keyword">and</span> get into the next loop)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// print primes between 100 and 200</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Primes between 100 and 200 are:\n"</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">100</span>; i &lt; <span class="number">201</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= <span class="built_in">sqrt</span>(i + <span class="number">1</span>); j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i % j == <span class="number">0</span>) &#123;</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Operator-and-Expression"><a href="#Operator-and-Expression" class="headerlink" title="Operator and Expression"></a>Operator and Expression</h2><h3 id="Introduction-of-Operator"><a href="#Introduction-of-Operator" class="headerlink" title="Introduction of Operator:"></a>Introduction of Operator:</h3><ol>
+<li><p>Classification of operators:</p>
+<ul>
+<li>Unary operator: <strong>&amp;</strong>, <strong>*</strong>, <strong>~</strong>, <strong>sizeof</strong>, <strong>()</strong></li>
+<li>Binary operator: <strong>&gt;&gt;</strong>, <strong>&lt;&lt;</strong>, <strong>^</strong></li>
+<li>Ternary operator: <strong>expression1?expression2:expression3</strong></li>
+</ul>
+</li>
+<li><p>Arithmetic operator: <strong>+</strong>, <strong>-</strong>, <strong>*</strong>, <strong>/</strong>, <strong>%</strong></p>
+</li>
+<li><p>Relational operator: <strong>&lt;</strong>, <strong>&gt;</strong>, <strong>&lt;=</strong>, <strong>&gt;=</strong>, <strong>==</strong>, <strong>!=</strong></p>
+</li>
+<li><p>Logical operator: <strong>!</strong>, <strong>&amp;&amp;</strong>, <strong>||</strong>, Short circuit rule: for <strong>&amp;&amp;</strong>, if the left operand is 0, the result must be 0, right</p>
+</li>
+</ol>
+<p>operands will not be calculated; For <strong>||</strong>, if the left operand is not 0, then the result must be 1, and the right operand will not be calculated.</p>
+<ol>
+<li><p>Comma operator: <strong>expression1, expression2</strong></p>
+</li>
+<li><p>Bit operator: <strong>&amp;</strong>, <strong>|</strong>, <strong>~</strong>, <strong>^</strong>, <strong>&lt;&lt;</strong>, <strong>&gt;&gt;</strong></p>
+</li>
+<li><p>Assigning operator: <strong>=</strong>, <strong>+=</strong>, <strong>-=</strong>, <strong>*=</strong>, <strong>\/=</strong>, <strong>%=</strong>, a l-value must be a storage cell and a r-value must be a certain value.</p>
+</li>
+</ol>
+<h3 id="Type-Conversion"><a href="#Type-Conversion" class="headerlink" title="Type Conversion"></a>Type Conversion</h3><ol>
+<li><p>The classification of type conversion</p>
+<ul>
+<li>Implicit conversion<ul>
+<li>Usage scenarios<ul>
+<li>The types of operand in an arithmetic or logical expression are different.</li>
+<li>The type of the expression on the right side of the assignment operator does not match the type of the variable on the left.</li>
+<li>An actual parameter type in a function call does not match its formal parameter type.</li>
+<li>The type of the expression in the return statement does not match the type of the return value of the function.</li>
+</ul>
+</li>
+<li>The improvement of data type<ul>
+<li>char, short $ \rightarrow$ int $\rightarrow$ unsigned int $\rightarrow$ long int $\rightarrow$ unsigned long int</li>
+<li>float $\rightarrow$ double $\rightarrow$ long double</li>
+<li>integer $ \rightarrow$ float</li>
+<li>signed $ \rightarrow$ unsigned</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Explicit conversion: <code>(TypeSpecifier)(expression)</code>.</li>
+</ul>
+</li>
+<li><p>True code, complemental code and ones-complement code</p>
+<ul>
+<li><p>For the positive number: True code = complemental code = ones-complement code.</p>
+</li>
+<li><p>For the negative number: True code: the same as positive number’s. complemental code: reverse true code and plus one. ones-complement code: the sign bit stays the same, the number bit is reversed.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// swap the values of two integer variables</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"a:%d b:%d -before\n"</span>, a, b);</span><br><span class="line">    a = a ^ b;</span><br><span class="line">    b = a ^ b;</span><br><span class="line">    a = a ^ b;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"a:%d b:%d -after\n"</span>, a, b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="Basic-Knowledge-of-Function"><a href="#Basic-Knowledge-of-Function" class="headerlink" title="Basic Knowledge of Function"></a>Basic Knowledge of Function</h2><h3 id="Advantage-and-Classification-of-Function"><a href="#Advantage-and-Classification-of-Function" class="headerlink" title="Advantage and Classification of Function"></a>Advantage and Classification of Function</h3><ol>
+<li>Advantages<ul>
+<li>Make the program shorter and clearer.</li>
+<li>Good for program maintenance.</li>
+<li>Can improve the efficiency of code development.</li>
+<li>Improve code reuse.</li>
+</ul>
+</li>
+<li>Classifications<ul>
+<li>Library function: provided by system, no need to be defined, must include header files.</li>
+<li>User-defined function: need to be defined, and must be declared before in use.</li>
+<li>Specially, the difference between inline function and macro with parameters is: When the function is called, control transfer will occur, and the code will be transferred to the function definition section and start running down. However, when the inline function is running to the function call, control transfer will not occur, but the function definition section will be directly copied down and run directly, which is defined as <code>inline DataType FunctionName();</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="Definition-and-Calling-of-Function"><a href="#Definition-and-Calling-of-Function" class="headerlink" title="Definition and Calling of Function"></a>Definition and Calling of Function</h3><ol>
+<li>Syntactic format for definition<ul>
+<li>Function without parameters: <code>DataType FunctionName(){ statement };</code>.</li>
+<li>Function with parameters: <code>DataType FunctionName( FormalParameterList ){ statement };</code>.</li>
+<li>Specially, the type specifier indicates the return type of the function, and the content in <strong>{}</strong> is called the function body. If the function does not have return value, the return type is <strong>void</strong>, and it is not necessary to use the return statement; if it does, the return statement is required to return a value matching the return type.</li>
+</ul>
+</li>
+<li>Syntactic format for calling: <code>FunctionName( ActualParameterList)</code>.</li>
+<li>Actual parameter and formal parameter must be consistent in quantity, type and sequence. Specially, actual parameter must be determined value and the transfer is one-way( the formal $ \Rightarrow$ the actual ).</li>
+<li>A nested call to a function: The calls to another function to occur within the definition of one function is allowed. No nested definitions of functions exist.</li>
+</ol>
+<h3 id="Concept-and-Declaration-of-Function-Prototype"><a href="#Concept-and-Declaration-of-Function-Prototype" class="headerlink" title="Concept and Declaration of Function Prototype"></a>Concept and Declaration of Function Prototype</h3><ol>
+<li><p>Principle: first declare, then call and definitions cannot be repeated while declarations can.</p>
+</li>
+<li><p>Declaration of function prototype: the compilation system is notified of name and return type of the function, and number, type and sequence of the parameters, so that the statements containing the function calls can be checked against when compiled.</p>
+</li>
+<li><p>Usually a function can be declared in header files and defined in source files.</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test the compilation of the header file</span></span><br><span class="line"><span class="comment">// include/test.h</span></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="comment">// src/test.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, i);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// src/main.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"test.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"please input a number:\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;i);</span><br><span class="line">    <span class="keyword">if</span> (!test(i)) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"success!\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"failure\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h2><h3 id="One-dimensional-Array"><a href="#One-dimensional-Array" class="headerlink" title="One-dimensional Array"></a>One-dimensional Array</h3><ol>
+<li><p>Concept: organize several variables orderly whose type is the same. In computer memory, all elements of an array are stored in adjacent storage locations in the order of subscript. Array name is the unique identifier of an array, and array elements are represented by array name and subscript.</p>
+</li>
+<li><p>Definition of linear array: <code>DataType ArrayName[ConstantExpression];</code>.</p>
+</li>
+<li><p>Initialization of linear array</p>
+<ul>
+<li><p><code>DataType ArrayName[ConstantExpression] = {Value1, Value2, ..., Valuen}</code>: When <em>ConstantExpression</em> is omitted in initialization, the system allocate the size of the array according to the numbers of values.</p>
+</li>
+<li><p><code>ArrayName[n] = An arithmetic expression for n</code>.</p>
+</li>
+<li><p><code>for(...){scanf(&quot;string of format control&quot;, &amp;ArrayName[n]);}</code>.</p>
+</li>
+<li><p>When the array is partly initialized, the unassigned element is initialized to 0 by default.</p>
+</li>
+<li><p>If you assign values to all elements, the length of the array may not be specified in the array definition.</p>
+</li>
+</ul>
+</li>
+<li><p>Usage to linear array: <code>ArrayName[Subscript]</code>.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// enter a group of ages and count the age groups</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> persons[<span class="number">10</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"please input ages: "</span>);</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;persons[i]);</span><br><span class="line">    <span class="keyword">int</span> ages[<span class="number">11</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> k = persons[i] / <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">if</span> (k &gt;= <span class="number">10</span>)</span><br><span class="line">            ages[<span class="number">10</span>]++;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            ages[k]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">11</span>; i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"ages[%d]:%d\n"</span>, i, ages[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Two-dimensional-Array"><a href="#Two-dimensional-Array" class="headerlink" title="Two-dimensional Array"></a>Two-dimensional Array</h3><ol>
+<li><p>Definition of two-dimensional array</p>
+<ul>
+<li><code>DataType ArrayName[ConstantExpression1][ConstantExpression2];</code>, thereamong the former represents row and the latter represents column. In C language, two-dimensional arrays are stored in rows with contiguous addresses.</li>
+</ul>
+</li>
+<li><p>Initialization of two-dimensional array</p>
+<ul>
+<li>Row initializations can be omitted, but columns should never be omitted. Partial initializations are initialized to 0 by default.</li>
+</ul>
+</li>
+<li><p>Usage of two-dimensional array: <code>ArrayName[RowSubscript][ColumnSubscript]</code>.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// print Yang Hui triangle</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">20</span>][<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++)</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">20</span>; j++)</span><br><span class="line">            a[i][j] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> row;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"please input row: "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;row);</span><br><span class="line">    <span class="keyword">int</span> k;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; row; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (k = row; k &gt; i; k--)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt;= i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == <span class="number">0</span> || i == j)</span><br><span class="line">                a[i][j] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                a[i][j] = a[i - <span class="number">1</span>][j] + a[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%2d"</span>, a[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="High-Quality-Coding-Specification"><a href="#High-Quality-Coding-Specification" class="headerlink" title="High Quality Coding Specification"></a>High Quality Coding Specification</h2><h3 id="Macro-Coding-Specification"><a href="#Macro-Coding-Specification" class="headerlink" title="Macro Coding Specification"></a>Macro Coding Specification</h3><ol>
+<li>Declaration of copyright and version<ul>
+<li>Copyright information</li>
+<li>File name, identifier and abstract</li>
+<li>Current version, author or modifier and finish date</li>
+<li>Version history information</li>
+</ul>
+</li>
+<li>Structure of header file<ul>
+<li>Declaration of copyright and version</li>
+<li>Preprocess statements</li>
+<li>Declaration of functions and structures</li>
+</ul>
+</li>
+<li>Structure of source file<ul>
+<li>Declaration of copyright and version</li>
+<li>Including of header files</li>
+<li>Data and code(Function annotation and statement annotation)</li>
+</ul>
+</li>
+</ol>
+<h3 id="Micro-Coding-Specification"><a href="#Micro-Coding-Specification" class="headerlink" title="Micro Coding Specification"></a>Micro Coding Specification</h3><ol>
+<li>Usage of assert<ul>
+<li><code>void assert(scalar expression);</code>: This macro can help programmers find bugs in their programs, or handle exceptional cases via a crash that will produce limited debugging output. If <em>expression</em> is false (i.e., compares equal to zero), it prints an error message to standard error and terminates the program by calling <u>abort</u>(). The error message includes the name of the file and function containing the its call, the source code line number of the call, and the text of the argument. And it is only used in debug version.</li>
+</ul>
+</li>
+<li>Robustness of code must be considered when we apply for storage area in heap or use pointer.</li>
+<li>Coding rule: Keep in mind that code is something to show people, not to show off.</li>
+</ol>
+<h2 id="Basic-Knowledge-of-Pointer"><a href="#Basic-Knowledge-of-Pointer" class="headerlink" title="Basic Knowledge of Pointer"></a>Basic Knowledge of Pointer</h2><h3 id="Introduction-of-Pointer"><a href="#Introduction-of-Pointer" class="headerlink" title="Introduction of Pointer"></a>Introduction of Pointer</h3><ol>
+<li>Role of pointer<ul>
+<li>Represent complex data structures effectively</li>
+<li>Easy to use arrays and stings</li>
+<li>Make function parameter passing more flexible</li>
+<li>Able to deal with memory address</li>
+</ul>
+</li>
+<li>Concept of pointer<ul>
+<li>In computer science, a pointer is a programming language object that stores the memory address of another value located in computer memory. A pointer references a location in memory, and obtaining the value stored at that location is known as dereferencing the pointer. As an analogy, a page number in a book’s index could be considered a pointer to the corresponding page; dereferencing such a pointer would be done by flipping to the page with the given page number and reading the text found on that page. The actual format and content of a pointer variable is dependent on the underlying computer architecture. Using pointers significantly improves performance for repetitive operations like traversing iterable data structures, e.g. strings, lookup tables, control tables and tree structures. In particular, it is often much cheaper in time and space to copy and dereference pointers than it is to copy and access the data to which the pointers point.</li>
+<li>Pointer is a variable, whose value is the address of another variable it points to. And a pointer variable is simply called a pointer. </li>
+</ul>
+</li>
+<li>Definition of pointer<ul>
+<li>Format: <code>DataType* PointerName;</code>, where <em>DataType</em> represents type of variable which the pointer points to. </li>
+<li>Size: No matter what a pointer point to, its size is the same as one machine word-length.</li>
+</ul>
+</li>
+<li>Initialization of point<ul>
+<li>Format: <code>PointName = NULL;</code>, where <em>NULL</em> is equal to zero and it indicates the pointer points to nothing. <code>PointerName = &amp;VariableNAme;</code>.</li>
+<li>Of course, we can define and initialize at the same time.</li>
+</ul>
+</li>
+<li>Addition and subtraction operation: We can move the pointer by add and sub operation.</li>
+<li>Name of array<ul>
+<li>Name of array is a storage cell address of the first element address in the array.</li>
+<li>Name of array is a constant and disable to be reassigned.</li>
+<li>We can get another element in the array using offset.</li>
+</ul>
+</li>
+<li>Traversal method of array<ul>
+<li>Subscript method: <code>ArrayName[Subscript]</code></li>
+<li>Pointer method: <code>*(ArrayName+Subsript)</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="Segmentation-Fault"><a href="#Segmentation-Fault" class="headerlink" title="Segmentation Fault"></a>Segmentation Fault</h3><ol>
+<li>Concept and cause of segmentation fault<ul>
+<li>In computing, a segmentation fault (often shortened to segfault) or access violation is a fault, or failure condition, raised by hardware with memory protection, notifying an operating system (OS) the software has attempted to access a restricted area of memory (a memory access violation). On standard computers, this is a form of general protection fault. The OS kernel will, in response, usually perform some corrective action, generally passing the fault on to the offending process by sending the process a signal. Processes can in some cases install a custom signal handler, allowing them to recover on their own, but otherwise the OS default signal handler is used, generally causing abnormal termination of the process (a program crash), and sometimes a core dump. Segmentation faults are a common class of error in programs written in languages like C that provide low-level memory access. They arise primarily due to errors in use of pointers for virtual memory addressing, particularly illegal access. Another type of memory access error is a bus error, which also has various causes, but is today much rarer; these occur primarily due to incorrect physical memory addressing, or due to misaligned memory access – these are memory references that the hardware cannot address, rather than references that a process is not allowed to address.</li>
+<li>Common case: overwrite nil pointer, access a nonexistent memory location, access a system-protected memory location and modify variables in the constant area.</li>
+</ul>
+</li>
+<li>Common ways to avoid segmentation fault<ul>
+<li>Better to initialize variables when defining them</li>
+<li>Do not overstep the boundary of any array </li>
+<li>Avoid to overwrite some protected or nonexistent memory cell</li>
+</ul>
+</li>
+</ol>
+<h3 id="Function-Parameter-Passing"><a href="#Function-Parameter-Passing" class="headerlink" title="Function Parameter Passing"></a>Function Parameter Passing</h3><ol>
+<li>Call by value<ul>
+<li>A parameter acts within the subroutine as a new local variable initialized to the value of the argument.</li>
+<li>Call by value (also referred to as pass by value) is the most common evaluation strategy, used in languages as different as C. In call by value, the argument expression is evaluated, and the resulting value is bound to the corresponding variable in the function (frequently by copying the value into a new memory region). If the function or procedure is able to assign values to its parameters, only its local variable is assigned — that is, anything passed into a function call is unchanged in the caller’s scope when the function returns.</li>
+</ul>
+</li>
+<li>Call by reference<ul>
+<li>The argument variable supplied by the caller can be affected by actions within the called subroutine. </li>
+<li>Call by reference (also referred to as pass by reference) is an evaluation strategy where a function receives an implicit reference to a variable used as argument, rather than a copy of its value. This typically means that the function can modify (i.e. assign to) the variable used as argument—something that will be seen by its caller. Call by reference can therefore be used to provide an additional channel of communication between the called function and the calling function. A call-by-reference language makes it more difficult for a programmer to track the effects of a function call, and may introduce subtle bugs. A simple “litmus test” for whether a language supports call-by-reference semantics is if it’s possible to write a traditional <code>swap(a,b)</code> function in the language</li>
+</ul>
+</li>
+</ol>
+<h3 id="Multiple-Indirection"><a href="#Multiple-Indirection" class="headerlink" title="Multiple Indirection"></a>Multiple Indirection</h3><ol>
+<li>Concept of multiple indirection: In some languages, a pointer can reference another pointer, requiring multiple dereference operations to get to the original value. While each level of indirection may add a performance cost, it is sometimes necessary in order to provide correct behavior for complex data structures. For example, in C it is typical to define a linked list in terms of an element that contains a pointer to the next element of the list. And a basic example is in the argv argument to the main function in C (and C++), which is given in the prototype as <code>char **argv</code>—this is because the variable <code>argv</code> itself is a pointer to an array of strings (an array of arrays), so <code>*argv</code> is a pointer to the 0th string (by convention the name of the program), and <code>**argv</code> is the 0th character of the 0th string.</li>
+<li>Definition and initialization of pointers to pointers: <code>DataType** Pointer2Name = &amp;Pointer1Name;</code></li>
+</ol>
+<h3 id="Constant-Pointer-and-Pointer-Constant"><a href="#Constant-Pointer-and-Pointer-Constant" class="headerlink" title="Constant Pointer and Pointer Constant"></a>Constant Pointer and Pointer Constant</h3><ol>
+<li>Concept of constant pointer: In short, it is a pointer to a constant and the variable value it points to can not be changed.</li>
+<li>Definition of constant pointer: <code>DataType const *PointerName</code></li>
+<li>Usage of constant pointer: It is usually used to deny to modify the variable value the arguments points to when calling function. </li>
+<li>Concept of pointer constant: In short, it is a pointer whose value can’t be changed while the variable value it points to can be changed.</li>
+<li>Definition of pointer constant: <code>DataType *const PointerName</code></li>
+</ol>
+<h2 id="Supplement"><a href="#Supplement" class="headerlink" title="Supplement"></a>Supplement</h2><h3 id="Generating-Random-Number"><a href="#Generating-Random-Number" class="headerlink" title="Generating Random Number"></a>Generating Random Number</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    srand(time(<span class="number">0</span>));</span><br><span class="line">    <span class="keyword">int</span> a = rand()%<span class="number">90</span>+<span class="number">10</span>; <span class="comment">//represent 10~99</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Do-Not-Display-Password"><a href="#Do-Not-Display-Password" class="headerlink" title="Do Not Display Password"></a>Do Not Display Password</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span>* password;</span><br><span class="line">    password = getpass(<span class="string">"Input password:"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The password is: %s\n"</span>, password);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+      <div style="text-align:center;color: #ccc;font-size:14px;">---------------- The End ----------------</div>
+        
+      
+        <div id="reward-container">
+  <div>Donate comment here.</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="YiHe Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="YiHe Huang Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>YiHe Huang</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://youthfaith.cn/2018/10/07/BasicKnowledgeofC/" title="Basic Knowledge of C Language">http://youthfaith.cn/2018/10/07/BasicKnowledgeofC/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.</li>
+<li>
+     <strong>No reproduction without permission.</strong>
+</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Basic-Knowledge/" rel="tag"><i class="fa fa-tag"></i> Basic Knowledge</a>
+            
+              <a href="/tags/C-Language/" rel="tag"><i class="fa fa-tag"></i> C Language</a>
+            
+          </div>
+        
+
+        
+
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="gitalk-container"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc" data-target="post-toc-wrap">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-of-C-Language"><span class="nav-number">1.</span> <span class="nav-text">Introduction of C Language</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Program-Algorithm-Data-Structure"><span class="nav-number">1.1.</span> <span class="nav-text">Program = Algorithm + Data Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Development-of-Computer-Language"><span class="nav-number">1.2.</span> <span class="nav-text">Development of Computer Language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-First-C-Program"><span class="nav-number">1.3.</span> <span class="nav-text">The First C Program</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comment-in-C-Language"><span class="nav-number">1.4.</span> <span class="nav-text">Comment in C Language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Development-Process-of-C-Program"><span class="nav-number">1.5.</span> <span class="nav-text">Development Process of C Program</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primary-Data-Type"><span class="nav-number">2.</span> <span class="nav-text">Primary Data Type</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constants-and-Variables"><span class="nav-number">2.1.</span> <span class="nav-text">Constants and Variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Type"><span class="nav-number">2.2.</span> <span class="nav-text">Data Type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Formatted-Input-Output-Function"><span class="nav-number">2.3.</span> <span class="nav-text">Formatted Input/Output Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-only-Variable-and-Constant"><span class="nav-number">2.4.</span> <span class="nav-text">Read-only Variable and Constant</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conditional-Structure"><span class="nav-number">3.</span> <span class="nav-text">Conditional Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#If-then-else-Statement"><span class="nav-number">3.1.</span> <span class="nav-text">If - then - else Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-and-Switch-Statement"><span class="nav-number">3.2.</span> <span class="nav-text">Case and Switch Statement</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cycle-Structure"><span class="nav-number">4.</span> <span class="nav-text">Cycle Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#While-Statement"><span class="nav-number">4.1.</span> <span class="nav-text">While Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Do-while-Statement"><span class="nav-number">4.2.</span> <span class="nav-text">Do-while Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-Statement"><span class="nav-number">4.3.</span> <span class="nav-text">For Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jump-Statement"><span class="nav-number">4.4.</span> <span class="nav-text">Jump Statement</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operator-and-Expression"><span class="nav-number">5.</span> <span class="nav-text">Operator and Expression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-Operator"><span class="nav-number">5.1.</span> <span class="nav-text">Introduction of Operator:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Type-Conversion"><span class="nav-number">5.2.</span> <span class="nav-text">Type Conversion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Knowledge-of-Function"><span class="nav-number">6.</span> <span class="nav-text">Basic Knowledge of Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Advantage-and-Classification-of-Function"><span class="nav-number">6.1.</span> <span class="nav-text">Advantage and Classification of Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-and-Calling-of-Function"><span class="nav-number">6.2.</span> <span class="nav-text">Definition and Calling of Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Concept-and-Declaration-of-Function-Prototype"><span class="nav-number">6.3.</span> <span class="nav-text">Concept and Declaration of Function Prototype</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array"><span class="nav-number">7.</span> <span class="nav-text">Array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#One-dimensional-Array"><span class="nav-number">7.1.</span> <span class="nav-text">One-dimensional Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-dimensional-Array"><span class="nav-number">7.2.</span> <span class="nav-text">Two-dimensional Array</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#High-Quality-Coding-Specification"><span class="nav-number">8.</span> <span class="nav-text">High Quality Coding Specification</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Macro-Coding-Specification"><span class="nav-number">8.1.</span> <span class="nav-text">Macro Coding Specification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Micro-Coding-Specification"><span class="nav-number">8.2.</span> <span class="nav-text">Micro Coding Specification</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Knowledge-of-Pointer"><span class="nav-number">9.</span> <span class="nav-text">Basic Knowledge of Pointer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-Pointer"><span class="nav-number">9.1.</span> <span class="nav-text">Introduction of Pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Segmentation-Fault"><span class="nav-number">9.2.</span> <span class="nav-text">Segmentation Fault</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Parameter-Passing"><span class="nav-number">9.3.</span> <span class="nav-text">Function Parameter Passing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multiple-Indirection"><span class="nav-number">9.4.</span> <span class="nav-text">Multiple Indirection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constant-Pointer-and-Pointer-Constant"><span class="nav-number">9.5.</span> <span class="nav-text">Constant Pointer and Pointer Constant</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supplement"><span class="nav-number">10.</span> <span class="nav-text">Supplement</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Generating-Random-Number"><span class="nav-number">10.1.</span> <span class="nav-text">Generating Random Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Do-Not-Display-Password"><span class="nav-number">10.2.</span> <span class="nav-text">Do Not Display Password</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="YiHe Huang">
+  <p class="site-author-name" itemprop="name">YiHe Huang</p>
+  <div class="site-description" itemprop="description">YouthFaith's Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/YouthFaith" title="GitHub &rarr; https://github.com/YouthFaith" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:huangyihe52647849@gmail.com" title="E-Mail &rarr; mailto:huangyihe52647849@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://twitter.com/youthfaith1" title="Twitter &rarr; https://twitter.com/youthfaith1" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://dzblog.cn" title="https://dzblog.cn" rel="noopener" target="_blank">Wintermelon's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://crossoverjie.top" title="https://crossoverjie.top" rel="noopener" target="_blank">crossoverJie's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://yangbingdong.com" title="https://yangbingdong.com" rel="noopener" target="_blank">ookamiAntD's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://xiaozhou.net/" title="https://xiaozhou.net/" rel="noopener" target="_blank">Timothy's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://zww.me" title="https://zww.me" rel="noopener" target="_blank">ZWWoOoOo's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jitwxs.cn/" title="https://www.jitwxs.cn/" rel="noopener" target="_blank">Jitwxs's Blog</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiHe Huang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">36k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">33 mins.</span>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='158' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/muse.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'a78a0cd3150929e4d6b0',
+      clientSecret: '6f4f19733838d199a701705a5c56ac19b2c029ce',
+      repo: 'youthfaith-talk',
+      owner: 'YouthFaith',
+      admin: ['YouthFaith'],
+      id: '3dded6c49c61f6725b406ca33450bb59',
+        language: 'en',
+      
+      distractionFreeMode: 'false'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"superSample":2,"width":150,"height":230,"position":"right"},"mobile":{"show":true},"react":{"opacityDefault":0.9,"opacityOnHover":0.5},"log":false});</script></body>
+</html>
