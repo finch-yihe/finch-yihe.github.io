@@ -82,7 +82,7 @@
 <meta property="og:image" content="http://youthfaith.cn/img/processStatusSwitch.png">
 <meta property="og:image" content="http://youthfaith.cn/img/process_chain.png">
 <meta property="og:image" content="http://youthfaith.cn/img/process_fan.png">
-<meta property="og:updated_time" content="2019-10-07T06:26:11.460Z">
+<meta property="og:updated_time" content="2019-10-07T07:02:32.103Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Process Management">
 <meta name="twitter:description" content="Efficiency comes from diligence. In shortage in the play ground transportation into Si, was destroyed by the idler.   ProcessConcept of Process a process is the instance of a computer program that is">
@@ -319,7 +319,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-07 14:26:11" itemprop="dateModified" datetime="2019-10-07T14:26:11+08:00">2019-10-07</time>
+                <time title="Modified: 2019-10-07 15:02:32" itemprop="dateModified" datetime="2019-10-07T15:02:32+08:00">2019-10-07</time>
               </span>
             
           
@@ -547,17 +547,15 @@
 <ul>
 <li><p>The <em>option</em> argument to <u>openlog</u>() is a bit mask constructed by ORing together any of the following values.</p>
 <ul>
-<li><strong>LOG_CONS</strong>: write directly to the system console if there is an error while sending to the system logger.<ul>
+<li><strong>LOG_CONS</strong>: write directly to the system console if there is an error while sending to the system logger.</li>
 <li><strong>LOG_NDELAY</strong>: open the connection immediately (normally, the connection is opened when the first message is logged).</li>
 <li><strong>LOG_PERROR</strong>: also log the message to stderr.</li>
 <li><strong>LOG_PID</strong>: include the caller’s PID with each message.</li>
 </ul>
 </li>
-</ul>
-</li>
 <li><p>The facility argument is used to specify what type of program is logging the message. This lets the configuration file specify that messages from different facilities will be handled differently.</p>
 <ul>
-<li><strong>LOG_AUTH</strong>: security/authorization messages<ul>
+<li><strong>LOG_AUTH</strong>: security/authorization messages</li>
 <li><strong>LOG_AUTHPRIV</strong>: security/authorization messages (private)</li>
 <li><strong>LOG_CRON</strong>: clock daemon (cron and at)</li>
 <li><strong>LOG_DAEMON</strong>: system daemons without separate facility value </li>
@@ -569,8 +567,6 @@
 <li><strong>LOG_SYSLOG</strong>: messages generated internally by syslogd(8)</li>
 <li><strong>LOG_USER</strong>: (default)generic user-level messages</li>
 <li><strong>LOG_UUCP</strong>: UUCP subsystem</li>
-</ul>
-</li>
 </ul>
 </li>
 <li><p><code>void syslog(int priority, const char *format, ...);</code>: generates a log message. The priority argument is formed by ORing together a facility value and a level value (described below). If no facility value is ORed into priority, then the default value set by <u>openlog</u>() is used, or, if there was no preceding <u>openlog</u>() call, a default of <strong>LOG_USER</strong> is employed.</p>
