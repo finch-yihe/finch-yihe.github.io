@@ -79,7 +79,7 @@
 <meta property="og:site_name" content="YouthFaith&#39;s Blog">
 <meta property="og:description" content="All roads lead to Rome.  ThreadConcept of Thread A thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler. Multiple threads can exist">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-07T05:59:37.619Z">
+<meta property="og:updated_time" content="2019-10-07T06:51:20.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Thread Management">
 <meta name="twitter:description" content="All roads lead to Rome.  ThreadConcept of Thread A thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler. Multiple threads can exist">
@@ -315,7 +315,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-07 13:59:37" itemprop="dateModified" datetime="2019-10-07T13:59:37+08:00">2019-10-07</time>
+                <time title="Modified: 2019-10-07 14:51:20" itemprop="dateModified" datetime="2019-10-07T14:51:20+08:00">2019-10-07</time>
               </span>
             
           
@@ -393,9 +393,9 @@
 <li>In a word, threads are used for small tasks, whereas processes are used for more ‘heavyweight’ tasks – basically the execution of applications. Another difference between a thread and a process is that threads within the same process share the same address space, whereas different processes do not.</li>
 </ol>
 <h3 id="Thread-Model"><a href="#Thread-Model" class="headerlink" title="Thread Model"></a>Thread Model</h3><ol>
-<li>1:1 kernel-level threading: Threads created by the user in a 1:1 correspondence with schedulable entities in the kernel are the simplest possible threading implementation. </li>
-<li>N:1 (user-level threading): An N:1 model implies that all application-level threads map to one kernel-level scheduled entity; the kernel has no knowledge of the application threads. With this approach, context switching can be done very quickly and, in addition, it can be implemented even on simple kernels which do not support threading. One of the major drawbacks, however, is that it cannot benefit from the hardware acceleration on multi-threaded processors or multi-processor computers: there is never more than one thread being scheduled at the same time. For example: If one of the threads needs to execute an <strong>I/O</strong> request, the whole process is blocked and the threading advantage cannot be used. </li>
-<li>M:N (hybrid threading): M:N maps some M number of application threads onto some N number of kernel entities, or “virtual processors.” This is a compromise between kernel-level (“1:1”) and user-level (“N:1”) threading. In general, “M:N” threading systems are more complex to implement than either kernel or user threads, because changes to both kernel and user-space code are required. In the M:N implementation, the threading library is responsible for scheduling user threads on the available schedulable entities; this makes context switching of threads very fast, as it avoids system calls. However, this increases complexity and the likelihood of priority inversion, as well as suboptimal scheduling without extensive (and expensive) coordination between the userland scheduler and the kernel scheduler.</li>
+<li><strong>1:1</strong> kernel-level threading: threads created by the user in a 1:1 correspondence with schedulable entities in the kernel are the simplest possible threading implementation. </li>
+<li><strong>N:1</strong> (user-level threading): imply that all application-level threads map to one kernel-level scheduled entity; the kernel has no knowledge of the application threads. With this approach, context switching can be done very quickly and, in addition, it can be implemented even on simple kernels which do not support threading. One of the major drawbacks, however, is that it cannot benefit from the hardware acceleration on multi-threaded processors or multi-processor computers: there is never more than one thread being scheduled at the same time. For example: If one of the threads needs to execute an <strong>I/O</strong> request, the whole process is blocked and the threading advantage cannot be used. </li>
+<li><strong>M:N</strong> (hybrid threading): map some M number of application threads onto some N number of kernel entities, or “virtual processors.” This is a compromise between kernel-level (“1:1”) and user-level (“N:1”) threading. In general, “M:N” threading systems are more complex to implement than either kernel or user threads, because changes to both kernel and user-space code are required. In the M:N implementation, the threading library is responsible for scheduling user threads on the available schedulable entities; this makes context switching of threads very fast, as it avoids system calls. However, this increases complexity and the likelihood of priority inversion, as well as suboptimal scheduling without extensive (and expensive) coordination between the userland scheduler and the kernel scheduler.</li>
 </ol>
 <h3 id="Thread-Creation"><a href="#Thread-Creation" class="headerlink" title="Thread Creation"></a>Thread Creation</h3><ol>
 <li><p>A standardized interface for thread implementation is POSIX Threads (Pthreads), which is a set of C-function library calls. OS vendors are free to implement the interface as desired, but the application developer should be able to use the same interface across multiple platforms. Most Unix platforms including Linux support Pthreads. </p>
