@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="Mfi9qKlk-eXPFCoKeaSQS9tInGifF_4VftSzH9ucoss">
+  <meta name="baidu-site-verification" content="LcRNZHLxU2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: true,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: './public/search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #00CDCD;
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #00CDCD, 0 0 5px #00CDCD; 
+    }
+    .pace .pace-activity {
+        border-top-color: #00CDCD;    
+        border-left-color: #00CDCD;    
+    }
+</style>
+
+  <meta name="description" content="While there is life there is hope.  What is SignalConcept of Signal Signals are a limited form of inter-process communication (IPC), typically used in Unix, Unix-like, and other POSIX-compliant operat">
+<meta name="keywords" content="Ultimate Knowledge,OS System,C Language">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POSIX Signal">
+<meta property="og:url" content="http://youthfaith.cn/2019/03/07/PosixSignal/index.html">
+<meta property="og:site_name" content="YouthFaith&#39;s Blog">
+<meta property="og:description" content="While there is life there is hope.  What is SignalConcept of Signal Signals are a limited form of inter-process communication (IPC), typically used in Unix, Unix-like, and other POSIX-compliant operat">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-07T06:27:21.651Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="POSIX Signal">
+<meta name="twitter:description" content="While there is life there is hope.  What is SignalConcept of Signal Signals are a limited form of inter-process communication (IPC), typically used in Unix, Unix-like, and other POSIX-compliant operat">
+  <link rel="canonical" href="http://youthfaith.cn/2019/03/07/PosixSignal/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>POSIX Signal | YouthFaith's Blog</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a href="https://github.com/YouthFaith" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouthFaith's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Welcome to My World!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+    
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-wrapper">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://youthfaith.cn/2019/03/07/PosixSignal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YiHe Huang">
+      <meta itemprop="description" content="YouthFaith's Blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouthFaith's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">POSIX Signal
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-03-07 12:07:06" itemprop="dateCreated datePublished" datetime="2019-03-07T12:07:06+08:00">2019-03-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-07 14:27:21" itemprop="dateModified" datetime="2019-10-07T14:27:21+08:00">2019-10-07</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>10k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>9 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote class="blockquote-center"><p>While there is life there is hope.</p>
+</blockquote>
+<h2 id="What-is-Signal"><a href="#What-is-Signal" class="headerlink" title="What is Signal"></a>What is Signal</h2><h3 id="Concept-of-Signal"><a href="#Concept-of-Signal" class="headerlink" title="Concept of Signal"></a>Concept of Signal</h3><ol>
+<li>Signals are a limited form of inter-process communication (<strong>IPC</strong>), typically used in Unix, Unix-like, and other POSIX-compliant operating systems. A signal is an asynchronous notification sent to a process or to a specific thread within the same process in order to notify it of an event that occurred. </li>
+<li><p>Signals are similar to interrupts, the difference being that interrupts are mediated by the processor and handled by the kernel while signals are mediated by the kernel (possibly via system calls) and handled by processes. The kernel may pass an interrupt as a signal to the process that caused it (typical examples are <strong>SIGSEGV</strong>, <strong>SIGBUS</strong>, <strong>SIGILL</strong> and <strong>SIGFPE</strong>).</p>
+<a id="more"></a>
+<h3 id="Sending-Signals"><a href="#Sending-Signals" class="headerlink" title="Sending Signals"></a>Sending Signals</h3></li>
+<li><p>Source that signal occurs</p>
+<ul>
+<li>Hardware: caused by a hardware driver, such as pressing a keyboard or other hardware failure.</li>
+<li>Software: some common system function, like <code>kill()</code>, <code>raise()</code>, <code>alarm()</code>, <code>setitimer()</code> and so on. It also includes illegal operations and software setting (like gdb debug). Anyway, it is caused by kernel.</li>
+</ul>
+</li>
+<li><p>The <code>kill()</code> system call sends a specified signal to a specified process, if permissions allow. Similarly, the <code>kill()</code> command allows a user to send signals to processes. The <code>raise()</code> library function sends the specified signal to the current process. And we can use <code>kill -l</code> on Linux to see some common signal.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGHUP		1	<span class="comment">/* Hangup.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGINT		2	<span class="comment">/* Interactive attention signal.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGQUIT		3	<span class="comment">/* Quit.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGILL		4	<span class="comment">/* Illegal instruction.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGTRAP		5	<span class="comment">/* Trace/breakpoint trap.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGABRT		6	<span class="comment">/* Abnormal termination.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIGBUS		7	<span class="comment">/* Bus error.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGFPE		8	<span class="comment">/* Erroneous arithmetic operation.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGKILL		9	<span class="comment">/* Killed.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGUSR1		10	<span class="comment">/* User-defined signal 1.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGSEGV		11	<span class="comment">/* Invalid access to storage.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGUSR2		12	<span class="comment">/* User-defined signal 2.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGPIPE		13	<span class="comment">/* Broken pipe.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGALRM		14	<span class="comment">/* Alarm clock.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGTERM		15	<span class="comment">/* Termination request.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGSTKFLT	16	<span class="comment">/* Stack fault (obsolete).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGCHLD		17	<span class="comment">/* Child terminated or stopped.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGCONT		18	<span class="comment">/* Continue.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGSTOP		19	<span class="comment">/* Stop, unblockable.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGTSTP		20	<span class="comment">/* Keyboard stop.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGTTIN		21	<span class="comment">/* Background read from control terminal.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGTTOU		22	<span class="comment">/* Background write to control terminal.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGURG		23	<span class="comment">/* Urgent data is available at a socket.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGXCPU		24	<span class="comment">/* CPU time limit exceeded.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGXFSZ		25	<span class="comment">/* File size limit exceeded.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGVTALRM	26	<span class="comment">/* Virtual timer expired.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGPROF		27	<span class="comment">/* Profiling timer expired.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGWINCH	28	<span class="comment">/* Window size change (4.3 BSD, Sun).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGPOLL		29	<span class="comment">/* Pollable event occurred (System V).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGPWR		30	<span class="comment">/* Power failure imminent.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGSYS		31	<span class="comment">/* Bad system call.  */</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Exceptions such as division by zero or a segmentation violation will generate signals (here, <strong>SIGFPE</strong> “floating point exception” and <strong>SIGSEGV</strong> “segmentation violation” respectively, which both by default cause a core dump and a program exit).The kernel can generate signals to notify processes of events. For example, <strong>SIGPIPE</strong> will be generated when a process writes to a pipe which has been closed by the reader; by default, this causes the process to terminate, which is convenient when constructing shell pipelines. Typing certain key combinations at the controlling terminal of a running process causes the system to send it certain signals. These default key combinations with modern operating systems can be changed with the stty command.</p>
+<ul>
+<li><strong>Ctrl-C</strong>: send an <strong>INT</strong> signal (“interrupt”, <strong>SIGINT</strong>); by default, this causes the process to terminate.</li>
+<li><strong>Ctrl-Z</strong>: send a <strong>TSTP</strong> signal (“terminal stop”, <strong>SIGTSTP</strong>); by default, this causes the process to suspend execution.</li>
+<li><strong>Ctrl-\</strong>: send a <strong>QUIT</strong> signal (<strong>SIGQUIT</strong>); by default, this causes the process to terminate and dump core.</li>
+<li><strong>Ctrl-T</strong>: send an <strong>INFO</strong> signal (<strong>SIGINFO</strong>); by default, and if supported by the command, this causes the operating system to show information about the running command.</li>
+</ul>
+</li>
+</ol>
+<h2 id="Signal-Handing"><a href="#Signal-Handing" class="headerlink" title="Signal Handing"></a>Signal Handing</h2><h3 id="Three-Condition-to-Handle-Signals"><a href="#Three-Condition-to-Handle-Signals" class="headerlink" title="Three Condition to Handle Signals"></a>Three Condition to Handle Signals</h3><ol>
+<li><p>Signal handlers can be installed with the <code>signal()</code> or <code>sigaction()</code> system call. If a signal handler is not installed for a particular signal, the default handler is used. Otherwise the signal is intercepted and the signal handler is invoked. The process can also specify two default behaviors, without creating a handler: ignore the signal (<strong>SIG_IGN</strong>) and use the default signal handler (<strong>SIG_DFL</strong>). There are two signals which cannot be intercepted and handled: <strong>SIGKILL</strong> and <strong>SIGSTOP</strong>.</p>
+</li>
+<li><p>Not every process can send signal to other process, except for kernel and super user. Usually, common process only send signal to the process with the same <strong>uid</strong> and <strong>gid</strong>.</p>
+</li>
+<li><p>Some common function about signal</p>
+<ul>
+<li><p><code>void (*signal(int sig, void (*func)(int)))(int);</code> or <code>sighandler_t signal(int signum, sighandler_t handler);</code>: chooses one of three ways in which receipt of the signal number <em>sig</em> is to be subsequently handled. If the value of <em>func</em> is <strong>SIG_DFL</strong>, default handling for that signal shall occur. If the value of <em>func</em> is <strong>SIG_IGN</strong>, the signal shall be ignored. Otherwise, the application shall ensure that <em>func</em> points to a function to be called when that signal occurs. An invocation of such a function because of a signal, or (recursively) of any further functions called by that invocation (other than functions in the standard library), is called a “signal handler’’. If the request can be honored, it shall return the value of <em>func</em> for the most recent call to <u>signal</u>() for the specified signal <em>sig</em>. Otherwise, <strong>SIG_ERR</strong> shall be returned and a positive value shall be stored in <em>errno</em>.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test different signal</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sig_handler</span><span class="params">(<span class="keyword">int</span> signo)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"pid:%d, signo:%d\n"</span>, getpid(), signo);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (signal(SIGTSTP, sig_handler) == SIG_ERR) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"signal error\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (signal(SIGINT, SIGIGN) == SIG_ERR) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"signal error\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"test...\n"</span>);</span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>int raise(int sig);</code>: sends a signal to the calling process or thread. In a single-threaded program it is equivalent to <u>kill</u>(getpid(), sig). In a multi-threaded program it is equivalent to <u>pthread_kill</u>(pthread_self(), sig). It returns 0 on success, and nonzero for failure.</p>
+</li>
+<li><p><code>int kill(pid_t pid, int sig);</code>: send a signal to a process or a group of processes specified by <em>pid</em>. The signal to be sent is specified by <em>sig</em> and is either one from the list given in <u><signal.h></signal.h></u> or 0. If <em>pid</em> is greater than 0, <em>sig</em> shall be sent to the process whose process ID is equal to <em>pid</em>. If <em>pid</em> is 0, <em>sig</em> shall be sent to all processes (excluding an unspecified set of system processes) whose process group ID is equal to the process group ID of the sender, and for which the process has permission to send a signal. If <em>pid</em> is −1, <em>sig</em> shall be sent to all processes (excluding an unspecified set of system processes) for which the process has permission to send that signal. If <em>pid</em> is negative, but not −1, <em>sig</em> shall be sent to all processes (excluding an unspecified set of system processes) whose process group ID is equal to the absolute value of <em>pid</em>, and for which the process has permission to send a signal. Upon successful completion, 0 shall be returned. Otherwise, −1 shall be returned and <em>errno</em> set to indicate the error.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="Some-Applications-about-Signal"><a href="#Some-Applications-about-Signal" class="headerlink" title="Some Applications about Signal"></a>Some Applications about Signal</h2><h3 id="SIGCHLD-Signal"><a href="#SIGCHLD-Signal" class="headerlink" title="SIGCHLD Signal"></a>SIGCHLD Signal</h3><ol>
+<li><p>The <strong>SIGCHLD</strong> signal is sent to a process when a child process terminates, is interrupted, or resumes after being interrupted. One common usage of the signal is to instruct the operating system to clean up the resources used by a child process after its termination without an explicit call to the <code>wait()</code> system call.</p>
+</li>
+<li><p>Usually, we use <strong>SIGCHLD</strong> signal to avoid defunct process in an asynchronous way rather than use <code>wait()</code> system function in a block way.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// avoid defunct process</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sig_handler</span><span class="params">(<span class="keyword">int</span> signo)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"child process(%d) send %d\n"</span>, getpid(), signo);</span><br><span class="line">    wait(<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (signal(SIGCHLD, sig_handler) == SIG_ERR) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"signal error\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">pid_t</span> pid = fork();</span><br><span class="line">    <span class="keyword">if</span> (pid &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"fork error"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"I'm child process\n"</span>);</span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">10</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"I'm parent process\n"</span>);</span><br><span class="line">        <span class="keyword">while</span> (n--)</span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="SIGALRM-SIGVTALRM-and-SIGPROF-Signal"><a href="#SIGALRM-SIGVTALRM-and-SIGPROF-Signal" class="headerlink" title="SIGALRM, SIGVTALRM and SIGPROF Signal"></a>SIGALRM, SIGVTALRM and SIGPROF Signal</h3><ol>
+<li><p>The <strong>SIGALRM</strong> signal is sent to a process when the time limit specified in a call to a preceding alarm setting function (such as <code>setitimer()</code>) elapses. <strong>SIGALRM</strong> is sent when real or clock time elapses. <strong>SIGVTALRM</strong> is sent when <strong>CPU</strong> time used by the process elapses. <strong>SIGPROF</strong> is sent when <strong>CPU</strong> time used by the process and by the system on behalf of the process elapses.</p>
+</li>
+<li><p><code>unsigned int alarm(unsigned int seconds);</code>: arranges for a <strong>SIGALRM</strong> signal to be delivered to the calling process in <em>seconds</em> seconds. If <em>seconds</em> is zero, any pending alarm is canceled. It returns the number of seconds remaining until any previously scheduled alarm was due to be delivered, or zero if there was no previously scheduled alarm. </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// implement a timer </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sig_handler</span><span class="params">(<span class="keyword">int</span> signo)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (signo == SIGALRM) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"clock time out\n"</span>);</span><br><span class="line">        alarm(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (signal(SIGALRM, sig_handler) == SIG_ERR) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"signal sigalrm error\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    alarm(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"test\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+      <div style="text-align:center;color: #ccc;font-size:14px;">---------------- The End ----------------</div>
+        
+      
+        <div id="reward-container">
+  <div>Donate comment here.</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="YiHe Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="YiHe Huang Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>YiHe Huang</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://youthfaith.cn/2019/03/07/PosixSignal/" title="POSIX Signal">http://youthfaith.cn/2019/03/07/PosixSignal/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.</li>
+<li>
+     <strong>No reproduction without permission.</strong>
+</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Ultimate-Knowledge/" rel="tag"><i class="fa fa-tag"></i> Ultimate Knowledge</a>
+            
+              <a href="/tags/OS-System/" rel="tag"><i class="fa fa-tag"></i> OS System</a>
+            
+              <a href="/tags/C-Language/" rel="tag"><i class="fa fa-tag"></i> C Language</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/01/07/ProcessManagement/" rel="next" title="Process Management">
+                  <i class="fa fa-chevron-left"></i> Process Management
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/04/07/ThreadManagement/" rel="prev" title="Thread Management">
+                  Thread Management <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="gitalk-container"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc" data-target="post-toc-wrap">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Signal"><span class="nav-number">1.</span> <span class="nav-text">What is Signal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Concept-of-Signal"><span class="nav-number">1.1.</span> <span class="nav-text">Concept of Signal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sending-Signals"><span class="nav-number">1.2.</span> <span class="nav-text">Sending Signals</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Signal-Handing"><span class="nav-number">2.</span> <span class="nav-text">Signal Handing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Three-Condition-to-Handle-Signals"><span class="nav-number">2.1.</span> <span class="nav-text">Three Condition to Handle Signals</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Some-Applications-about-Signal"><span class="nav-number">3.</span> <span class="nav-text">Some Applications about Signal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SIGCHLD-Signal"><span class="nav-number">3.1.</span> <span class="nav-text">SIGCHLD Signal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SIGALRM-SIGVTALRM-and-SIGPROF-Signal"><span class="nav-number">3.2.</span> <span class="nav-text">SIGALRM, SIGVTALRM and SIGPROF Signal</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="YiHe Huang">
+  <p class="site-author-name" itemprop="name">YiHe Huang</p>
+  <div class="site-description" itemprop="description">YouthFaith's Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/YouthFaith" title="GitHub &rarr; https://github.com/YouthFaith" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:huangyihe52647849@gmail.com" title="E-Mail &rarr; mailto:huangyihe52647849@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://twitter.com/youthfaith1" title="Twitter &rarr; https://twitter.com/youthfaith1" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://dzblog.cn" title="https://dzblog.cn" rel="noopener" target="_blank">Wintermelon's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://crossoverjie.top" title="https://crossoverjie.top" rel="noopener" target="_blank">crossoverJie's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://yangbingdong.com" title="https://yangbingdong.com" rel="noopener" target="_blank">ookamiAntD's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://xiaozhou.net/" title="https://xiaozhou.net/" rel="noopener" target="_blank">Timothy's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://zww.me" title="https://zww.me" rel="noopener" target="_blank">ZWWoOoOo's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jitwxs.cn/" title="https://www.jitwxs.cn/" rel="noopener" target="_blank">Jitwxs's Blog</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiHe Huang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">153k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">2:19</span>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='158' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/muse.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'a78a0cd3150929e4d6b0',
+      clientSecret: '6f4f19733838d199a701705a5c56ac19b2c029ce',
+      repo: 'youthfaith-talk',
+      owner: 'YouthFaith',
+      admin: ['YouthFaith'],
+      id: '84e15de3685ca62606c9ed77fe767a24',
+        language: 'en',
+      
+      distractionFreeMode: 'false'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"superSample":2,"width":150,"height":230,"position":"right"},"mobile":{"show":true},"react":{"opacityDefault":0.9,"opacityOnHover":0.5},"log":false});</script></body>
+</html>

@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="Mfi9qKlk-eXPFCoKeaSQS9tInGifF_4VftSzH9ucoss">
+  <meta name="baidu-site-verification" content="LcRNZHLxU2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: true,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: './public/search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #00CDCD;
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #00CDCD, 0 0 5px #00CDCD; 
+    }
+    .pace .pace-activity {
+        border-top-color: #00CDCD;    
+        border-left-color: #00CDCD;    
+    }
+</style>
+
+  <meta name="description" content="Efficiency comes from diligence. In shortage in the play ground transportation into Si, was destroyed by the idler.   ProcessConcept of Process a process is the instance of a computer program that is">
+<meta name="keywords" content="Ultimate Knowledge,OS System,C Language">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Process Management">
+<meta property="og:url" content="http://youthfaith.cn/2019/01/07/ProcessManagement/index.html">
+<meta property="og:site_name" content="YouthFaith&#39;s Blog">
+<meta property="og:description" content="Efficiency comes from diligence. In shortage in the play ground transportation into Si, was destroyed by the idler.   ProcessConcept of Process a process is the instance of a computer program that is">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://youthfaith.cn/img/processStatusSwitch.png">
+<meta property="og:image" content="http://youthfaith.cn/img/process_chain.png">
+<meta property="og:image" content="http://youthfaith.cn/img/process_fan.png">
+<meta property="og:updated_time" content="2019-10-07T06:26:11.460Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Process Management">
+<meta name="twitter:description" content="Efficiency comes from diligence. In shortage in the play ground transportation into Si, was destroyed by the idler.   ProcessConcept of Process a process is the instance of a computer program that is">
+<meta name="twitter:image" content="http://youthfaith.cn/img/processStatusSwitch.png">
+  <link rel="canonical" href="http://youthfaith.cn/2019/01/07/ProcessManagement/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Process Management | YouthFaith's Blog</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a href="https://github.com/YouthFaith" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouthFaith's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Welcome to My World!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+    
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-wrapper">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://youthfaith.cn/2019/01/07/ProcessManagement/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YiHe Huang">
+      <meta itemprop="description" content="YouthFaith's Blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouthFaith's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Process Management
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-01-07 12:07:06" itemprop="dateCreated datePublished" datetime="2019-01-07T12:07:06+08:00">2019-01-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-07 14:26:11" itemprop="dateModified" datetime="2019-10-07T14:26:11+08:00">2019-10-07</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>26k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>23 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote class="blockquote-center"><p>Efficiency comes from diligence. In shortage in the play ground transportation into Si, was destroyed by the idler. </p>
+</blockquote>
+<h2 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h2><h3 id="Concept-of-Process"><a href="#Concept-of-Process" class="headerlink" title="Concept of Process"></a>Concept of Process</h3><ol>
+<li>a process is the instance of a computer program that is being executed by one or many threads. It contains the program code and its activity. Depending on the operating system (<strong>OS</strong>), a process may be made up of multiple threads of execution that execute instructions concurrently. And a process entity consists of code segment, data segment and process control block (<strong>PCB</strong>). Actually, a process is an execution of a process entity.</li>
+<li><p>In general, a computer system process consists of (or is said to own) the following resources. The operating system keeps its processes separate and allocates the resources they need, so that they are less likely to interfere with each other and cause system failures (e.g., deadlock or thrashing). The operating system may also provide mechanisms for inter-process communication to enable processes to interact in safe and predictable ways.</p>
+ <a id="more"></a>
+<ul>
+<li><p>An image of the executable machine code associated with a program.</p>
+</li>
+<li><p>Memory (typically some region of virtual memory), which includes the executable code, process-specific data (input and output), a call stack (to keep track of active subroutines and/or other events), and a heap to hold intermediate computation data generated during run time.</p>
+</li>
+<li><p>Operating system descriptors of resources that are allocated to the process, such as file descriptors (Unix terminology) or handles (Windows), and data sources and sinks.</p>
+</li>
+<li><p>Security attributes, such as the process owner and the process’ set of permissions (allowable operations).</p>
+</li>
+<li><p>Processor state (context), such as the content of registers and physical memory addressing. The state is typically stored in computer registers when the process is executing, and in memory otherwise.</p>
+</li>
+</ul>
+</li>
+<li>In order for programs (including data) that participate in parallel execution to run independently, they must be assigned a specialized data structure (<strong>tack_struct</strong>) called a process control block (<strong>PCB</strong>). The system uses a process control block to describe the basic situation and running state of the process in order to control and manage the process itself, such as creating or destroying a process. </li>
+</ol>
+<h3 id="Process-States"><a href="#Process-States" class="headerlink" title="Process States"></a>Process States</h3><ol>
+<li><p><code>ps [options]</code>: display information about a selection of the active processes. Usually, we use <strong>-aux</strong> or <strong>-ef</strong> options to see some process information in Linux. Different status of the process are showed as below</p>
+<ul>
+<li><code>D</code>: uninterruptible sleep (usually <strong>IO</strong>)</li>
+<li><code>I</code>: idle kernel thread</li>
+<li><code>R</code>: running or runnable (on run queue)</li>
+<li><code>S</code>: interruptible sleep (waiting for an event to complete)</li>
+<li><code>T</code>: stopped by job control signal</li>
+<li><code>t</code>: stopped by debugger during the tracing</li>
+<li><code>X</code>: dead (should never be seen)</li>
+<li><code>Z</code>: defunct (zombie) process, terminated but not reaped by its parent</li>
+</ul>
+</li>
+<li><p>For <strong>BSD</strong> formats and when the stat keyword is used, additional characters may be displayed as below</p>
+<ul>
+<li><p><code>&lt;</code>: high-priority (not nice to other users)</p>
+</li>
+<li><p><code>N</code>: low-priority (nice to other users)</p>
+</li>
+<li><p><code>L</code>: has pages locked into memory (for real-time and custom <strong>IO</strong>)</p>
+</li>
+<li><p><code>s</code>: is a session leader</p>
+</li>
+<li><p><code>l</code>: is multi-threaded</p>
+</li>
+<li><p><code>+</code>: is in the foreground process group</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Definition in task_struct in head file 'sched.h'</span></span><br><span class="line"><span class="comment">/* Used in tsk-&gt;state: */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TASK_RUNNING                    0x0000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TASK_INTERRUPTIBLE              0x0001</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TASK_UNINTERRUPTIBLE            0x0002</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __TASK_STOPPED                  0x0004</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __TASK_TRACED                   0x0008</span></span><br><span class="line"><span class="comment">/* Used in tsk-&gt;exit_state: */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> EXIT_DEAD                       0x0010</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> EXIT_ZOMBIE                     0x0020</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> EXIT_TRACE                      (EXIT_ZOMBIE | EXIT_DEAD)</span></span><br><span class="line"><span class="comment">/* Used in tsk-&gt;state again: */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TASK_PARKED                     0x0040</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TASK_DEAD                       0x0080</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TASK_WAKEKILL                   0x0100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TASK_WAKING                     0x0200</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TASK_NOLOAD                     0x0400</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TASK_NEW                        0x0800</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TASK_STATE_MAX                  0x1000</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li>The switch of process states<br><img src="/img/processStatusSwitch.png" alt="process_status_switch"></li>
+</ol>
+<ul>
+<li><p>Three-state process management model: at any instant, a process is in one and only one of the three states. For a single processor computer, only one process can be in the “running” state at any one instant.</p>
+<ul>
+<li><strong>CREATED</strong> $ \rightarrow$ <strong>READY</strong>: the process is “created” by being loaded from a secondary storage device (hard disk drive, CD-ROM, etc.) into main memory. After that the process scheduler assigns it the “ready” state.</li>
+<li><strong>READY</strong> $\rightarrow$ <strong>RUNNING</strong>: it waits for the scheduler to do a so-called context switch and load the process into the processor. Processes that are ready for execution by the <strong>CPU</strong> are maintained in a queue for ready processes. The process state then becomes “running”, and the processor executes the process instructions. </li>
+<li><strong>RUNNING</strong> $\rightarrow$ <strong>READY</strong>: the most common reason for this transition is that the running process has reached the maximum allowable time for uninterrupted execution; i.e. time-out occurs. Other reasons can be the imposition of priority levels as determined by the scheduling policy used for the Low Level Scheduler, and the arrival of a higher priority process into the “ready” state.</li>
+<li><strong>RUNNING</strong> $\rightarrow$ <strong>BLOCKED</strong> Whenever the process requests access to <strong>I/O</strong> or needs input from the user or needs access to a critical region (the lock for which is already acquired) it enters the “blocked” state. The process continues to wait in the main memory and does not require <strong>CPU</strong>.</li>
+<li><strong>BLOCKED</strong> $\rightarrow$ <strong>READY</strong>: Once the <strong>I/O</strong> operation is completed the process goes to the “ready” state.</li>
+<li><strong>RUNNING</strong> $\rightarrow$ <strong>TERMINATED</strong>: Once the process finishes execution, or is terminated by the operating system, it is no longer needed. The process is removed instantly or is moved to the “terminated” state. When removed, it just waits to be removed from main memory.<ul>
+<li>Five-state process management model: the Medium Level Scheduler controls these events. A process can be suspended from the “running”, “blocked” and “ready” state, giving rise to two other states, namely, “suspend ready” and “suspend blocked”. A “ready” process that is suspended becomes “suspend ready”, and a “blocked” process that is suspended becomes “suspend blocked”. A process can be suspended for a number of reasons; the most significant of which arises from the process being swapped out of memory by the memory management system in order to free memory for other processes. Other common reasons for a process being suspended are when one suspends execution while debugging a program, or when the system is monitoring processes. Normally, the <strong>OS</strong> would be designed so that the preference would be to suspend a “blocked” process rather than a “ready” one.</li>
+</ul>
+</li>
+<li><strong>BLOCKED</strong> $\rightarrow$ <strong>SUSPEND BLOCKED</strong>: If a process in the “running” state requires more memory, then at least one “blocked” process can be swapped out of memory onto disk. The transition can also be made for the “blocked” process if there are “ready” processes available, and the <strong>OS</strong> determines that the “ready” process it would like to dispatch requires more main memory to maintain adequate performance.</li>
+<li><strong>SUSPEND BLOCKED</strong> $\rightarrow$ <strong>SUSPEND READY</strong>: A process in the “suspend blocked” state is moved to the “suspend ready” state when the event for which it has been waiting occurs. Note that this requires the state information concerning suspended processes be accessible to the <strong>OS</strong>.</li>
+<li><strong>SUSPEND READY</strong> $\rightarrow$ <strong>READY</strong>: When there are no “ready” processes in main memory, the <strong>OS</strong> will need to bring one in to continue execution. In addition, it might be the case that a process in the “suspend ready” state has higher priority than any of the processes in the “ready” state. In that case, the <strong>OS</strong> designer may dictate that it is more important to get at the higher priority process than to minimise swapping.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Process-Creation"><a href="#Process-Creation" class="headerlink" title="Process Creation"></a>Process Creation</h3><ol>
+<li><p>Creation of a program</p>
+<ul>
+<li>The compiler compiles the startup routine into the executable file during compiling. And the startup routine pass the argument in the command line to the main function with some environment variables. </li>
+</ul>
+</li>
+<li><p>Creation of a process: process creation in UNIX and Linux are done through <code>fork()</code> or <code>clone()</code> system calls. There are several steps involved in process creation. The first step is the validation of whether the parent process has sufficient authorization to create a process. Upon successful validation, the parent process is copied almost entirely, with changes only to the unique process id, parent process, and user-space. Each new process gets its own user space.</p>
+<ul>
+<li><p><code>int atexit(void (*function)(void));</code>: register the given function to be called at normal process termination, either via <u>exit</u>() or via return from the program’s <u>main</u>(). It returns the value 0 if successful, otherwise it returns a nonzero value. Multiple registered termination functions are executed in a stack fashion.</p>
+</li>
+<li><p><code>pid_t fork(void);</code>: create a new process by duplicating the calling process. The new process is referred to as the <strong>child</strong> process. The calling process is referred to as the <strong>parent</strong> process. The child process and the parent process run in separate memory spaces. At the time of <u>fork</u>() both memory spaces have the same content. Memory writes, file mappings, and unmappings performed by one of the processes do not affect the other. On success, the <strong>PID</strong> of the child process is returned in the parent, and 0 is returned in the child. On failure, -1 is returned in the parent, no child process is created, and <strong>errno</strong> is set appropriately. The child inherits copies of the parent’s set of open file descriptors. Each file descriptor in the child refers to the same open file description as the corresponding file descriptor in the parent. This means that the two file descriptors share open file status flags, file offset, and signal-driven <strong>I/O</strong> attributes. Also we can use <code>uid_t getuid(void);</code>, <code>uid_t geteuid(void);</code>, <code>gid_t getgid(void);</code>, <code>gid_t getegid(void);</code>, <code>pid_t getpid(void);</code>, <code>pid_t getppid(void);</code>, <code>pid_t getpgid(pid_t pid);</code> to get some identifiers about the process.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// the caching mechanism</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"current pid: %d\n"</span>, getpid());</span><br><span class="line">    FILE* fp = fopen(<span class="string">"test1.txt"</span>, <span class="string">"w"</span>);</span><br><span class="line">    <span class="keyword">int</span> fd = open(<span class="string">"test2.txt"</span>, O_WRONLY | O_CREAT | O_TRUNC, S_IRWXU | S_IRWXG);</span><br><span class="line">    <span class="keyword">char</span>* s_1 = <span class="string">"parent"</span>;</span><br><span class="line">    <span class="keyword">char</span>* s_2 = <span class="string">"child"</span>;</span><br><span class="line">    <span class="keyword">pid_t</span> pid = fork();</span><br><span class="line">    <span class="keyword">if</span> (pid &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"fork error\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(fp, <span class="string">"%s"</span>, s_1);</span><br><span class="line">            write(fd, s_1, <span class="number">6</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"This is parent process pid is: %d\n"</span>, getpid());</span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(fp, <span class="string">"%s"</span>, s_2);</span><br><span class="line">            write(fd, s_2, <span class="number">5</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"This is child process pid is:%d\n"</span>, getpid());</span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    fclose(fp);</span><br><span class="line">    close(fd);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Process-Termination"><a href="#Process-Termination" class="headerlink" title="Process Termination"></a>Process Termination</h3><ol>
+<li><p>Two ways to end a process</p>
+<ul>
+<li><p>Two conditions of process ending: mainly there is normal end and abnormal end. Thereamong, the normal end is divided into the <strong>return</strong> function calling and the <code>exit()</code> function (standard library function) calling or the <code>_exit()</code> and <code>_Exit()</code> function (system calling function) calling, while the abnormal end is divided into the <code>abort()</code> function calling and the reception of an abnormal signal. The difference between return, exit and _exit is as below.</p>
+</li>
+<li><table style="text-align:center">
+    <tr>
+        <td></td>
+        <td width="60px">return</td>
+        <td width="60px">exit()</td>
+        <td width="60px">_exit()</td>
+    </tr>
+    <tr>
+        <td>Whether flush standard I/O cache</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td>Whether automatically to call the atexit() funcion</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>No</td>
+    </tr>
+</table>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// the stack of atexit()</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">term_fun1</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"first term function\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">term_fun2</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"second term function\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">term_fun3</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"third term function\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (argc &lt; <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"useage: %s file [exit|_exit|return]\n"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    atexit(term_fun1);</span><br><span class="line">    atexit(term_fun2);</span><br><span class="line">    atexit(term_fun3);</span><br><span class="line"></span><br><span class="line">    FILE* fp = fopen(argv[<span class="number">1</span>], <span class="string">"w"</span>);</span><br><span class="line">    <span class="built_in">fprintf</span>(fp, <span class="string">"hello YouthFaith!\n"</span>);</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">strcmp</span>(argv[<span class="number">2</span>], <span class="string">"exit"</span>)) &#123;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">strcmp</span>(argv[<span class="number">2</span>], <span class="string">"_exit"</span>)) &#123;</span><br><span class="line">        _exit(<span class="number">0</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">strcmp</span>(argv[<span class="number">2</span>], <span class="string">"return"</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"useage: %s file [exit|_exit|return]\n"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    fclose(fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="Process-Chain-and-Process-Fan"><a href="#Process-Chain-and-Process-Fan" class="headerlink" title="Process Chain and Process Fan"></a>Process Chain and Process Fan</h2><h3 id="Process-Chain"><a href="#Process-Chain" class="headerlink" title="Process Chain"></a>Process Chain</h3><p><img src="/img/process_chain.png" alt="process chain"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// create a process chain</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (argc &lt; <span class="number">2</span>)</span><br><span class="line">        counter = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        counter = atoi(argv[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; counter; i++) &#123;</span><br><span class="line">        pid = fork();</span><br><span class="line">        <span class="keyword">if</span> (pid &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"fork error\n"</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"pid: %d, ppid: %d\n"</span>, getpid(), getppid());</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        sleep(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Process-Fan"><a href="#Process-Fan" class="headerlink" title="Process Fan"></a>Process Fan</h3><p><img src="/img/process_fan.png" alt="process fan"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// create a process fan</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (argc &lt; <span class="number">2</span>)</span><br><span class="line">        counter = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        counter = atoi(argv[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; counter; i++) &#123;</span><br><span class="line">        pid = fork();</span><br><span class="line">        <span class="keyword">if</span> (pid &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"fork error\n"</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"pid: %d, ppid: %d\n"</span>, getpid(), getppid());</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        sleep(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Defunct-Process"><a href="#Defunct-Process" class="headerlink" title="Defunct Process"></a>Defunct Process</h2><ol>
+<li><p>Concept of the defunct process: a process that has completed execution (via the <u>exit</u>() system call) but still has an entry in the process table. This occurs for child processes, where the entry is still needed to allow the parent process to read its child’s exit status. Once the exit status is read via the <u>wait</u>() system call, the zombie’s entry is removed from the process table and it is said to be <strong>reaped</strong>. A child process always first becomes a zombie before being removed from the resource table. In most cases, under normal system operation zombies are immediately waited on by their parent and then reaped by the system – processes that stay zombies for a long time are generally an error and cause a resource leak.</p>
+</li>
+<li><p>Three methods to avoid generate defunct process:</p>
+<ul>
+<li>Set the <strong>SIGCHLD</strong> handler to <strong>SIG_IGN</strong>.</li>
+<li>Using the <strong>wait()</strong> or <strong>waitpid()</strong> system calling function to let its parent process to reap it.</li>
+<li>Convert it to an orphan process, and that means ending its parent process and the <strong>init</strong> process will reap it finally.</li>
+</ul>
+</li>
+<li><p><code>pid_t wait(int *stat_loc);</code> or <code>pid_t waitpid(pid_t pid, int *stat_loc, int options);</code>: obtain status information pertaining to one of the caller’s child processes. Various options permit status information to be obtained for child processes that have terminated or stopped. If status information is available for two or more child processes, the order in which their status is reported is unspecified. The <u>wait</u>() function shall <strong>suspend</strong> execution of the calling thread until status information for one of the terminated child processes of the calling process is available, or until delivery of a signal whose action is either to execute a signal-catching function or to terminate the process, while whether or not the thread is blocked depends on the value of the <strong>pid</strong> for the <strong>waitpid()</strong> function. If <strong>pid</strong> is equal to −1, status is requested for any child process. In this respect, <u>waitpid</u>() is then equivalent to <u>wait</u>(). If <strong>pid</strong> is greater than 0, it specifies the process ID of a single child process for which status is requested. If <strong>pid</strong> is 0, status is requested for any child process whose process group ID is equal to that of the calling process. If <strong>pid</strong> is less than −1, status is requested for any child process whose process group ID is equal to the absolute value of <strong>pid</strong>. The <strong>options</strong> argument is constructed by zero or more of the following flags, <strong>WCONTINUED</strong>, <strong>WNOHANG</strong> or <strong>WUNTRACED</strong>. And regardless of its value, this information may be interpreted using the following macros, <strong>WIFEXITED(stat_val)</strong> and <strong>WEXITSTATUS(stat_val)</strong>, <strong>WIFSIGNALED(stat_val)</strong> and <strong>WTERMSIG(stat_val)</strong>, <strong>WIFSTOPPED(stat_val)</strong> and <strong>WSTOPSIG(stat_val)</strong>. If <u>wait</u>() or <u>waitpid</u>() returns because the status of a child process is available, these functions shall return a value equal to the process ID of the child process for which <strong>status</strong> is reported. If <u>wait</u>() or <u>waitpid</u>() returns due to the delivery of a signal to the calling process, −1 shall be returned and <strong>errno</strong> set to <strong>[EINTR]</strong>. If <strong>waitpid()</strong> was invoked with <strong>WNOHANG</strong> set in options, it has at least one child process specified by <strong>pid</strong> for which <strong>status</strong> is not available, and <strong>status</strong> is not available for any process specified by <strong>pid</strong>, 0 is returned. Otherwise, −1 shall be returned, and <strong>errno</strong> set to indicate the error.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// three different status value about wait()</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">out_statue</span><span class="params">(<span class="keyword">int</span> status)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (WIFEXITED(status)) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"normal exit:%d\n"</span>, WEXITSTATUS(status));</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (WIFSIGNALED(status)) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"abnormal term:%d\n"</span>, WTERMSIG(status));</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (WIFSTOPPED(status)) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"stopped sig:%d\n"</span>, WSTOPSIG(status));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"unknow sig\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> status;</span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line">    <span class="keyword">if</span> ((pid = fork()) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"fork error\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"pid:%d, ppid:%d\n"</span>, getpid(), getppid());</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    wait(&amp;status);</span><br><span class="line">    out_statue(status);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"---------------------------\n"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((pid = fork()) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"fork error\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"pid:%d, ppid:%d\n"</span>, getpid(), getppid());</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">3</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> k = i / j;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, k);</span><br><span class="line">    &#125;</span><br><span class="line">    wait(&amp;status);</span><br><span class="line">    out_statue(status);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"---------------------------\n"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((pid = fork()) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"fork error\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"pid:%d, ppid:%d\n"</span>, getpid(), getppid());</span><br><span class="line">        pause();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        pid = waitpid(pid, &amp;status, WNOHANG | WUNTRACED);</span><br><span class="line">        <span class="keyword">if</span> (pid == <span class="number">0</span>)</span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">while</span> (pid == <span class="number">0</span>);</span><br><span class="line">    <span class="comment">// use `kill -19 PID` to stop the child process</span></span><br><span class="line">    out_statue(status);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"---------------------------\n"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Daemon-Process"><a href="#Daemon-Process" class="headerlink" title="Daemon Process"></a>Daemon Process</h2><ol>
+<li><p>Concept of the daemon process: a computer program that runs as a background process, rather than being under the direct control of an interactive user. Traditionally, the process names of a daemon end with the letter <strong>d</strong>, for clarification that the process is in fact a daemon. And the parent process of a daemon is often, but not always, the <strong>init</strong> process. A daemon is usually either created by a process forking a child process and then immediately exiting, thus causing <strong>init</strong> to adopt the child process, or by the <strong>init</strong> process directly launching the daemon.</p>
+</li>
+<li><p>Implementations</p>
+<ul>
+<li><p>Changing the umask to 0 to allow <code>open()</code>, <code>creat()</code>, and other operating system calls to provide their own permission masks and not to depend on the umask of the caller.</p>
+</li>
+<li><p>Executing as a background task by forking and exiting (in the parent “half” of the fork). This allows daemon’s parent (shell or startup process) to receive exit notification and continue its normal execution.</p>
+</li>
+<li><p>Detaching from the invoking session (usually accomplished by a single operation, <code>setsid()</code></p>
+<ul>
+<li>Dissociating from the controlling tty.</li>
+<li>Creating a new session and becoming the session leader of that session.</li>
+<li>Becoming a process group leader.</li>
+</ul>
+</li>
+<li><p>Setting the root directory (<strong>‘/‘</strong>) as the current working directory so that the process does not keep any directory in use that may be on a mounted file system (allowing it to be unmounted).</p>
+</li>
+<li><p>Closing all inherited files at the time of execution that are left open by the parent process, including file descriptors 0, 1 and 2 for the standard streams (stdin, stdout and stderr). Required files will be opened later. Using a logfile, the console, or <code>/dev/null</code> as stdin, stdout, and stderr.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// implement daemon process</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;syslog.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    umask(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">pid_t</span> pid = fork();</span><br><span class="line">    <span class="keyword">if</span> (pid &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"fork error!\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    setsid();</span><br><span class="line"></span><br><span class="line">    chdir(<span class="string">"/"</span>);</span><br><span class="line"></span><br><span class="line">    close(STDIN_FILENO);</span><br><span class="line">    close(STDOUT_FILENO);</span><br><span class="line">    close(STDERR_FILENO);</span><br><span class="line"></span><br><span class="line">    openlog(argv[<span class="number">0</span>], LOG_PID, LOG_SYSLOG);</span><br><span class="line">    syslog(LOG_DEBUG, <span class="string">"test syslog"</span>);</span><br><span class="line">    <span class="comment">// cat /var/log/syslog | grep ProcessName</span></span><br><span class="line">    closelog();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Common functions about system log</p>
+<ul>
+<li><code>void openlog(const char *ident, int option, int facility);</code>: opens a connection to the system logger for a program. The string pointed to by <em>ident</em> is prepended to every message, and is typically set to the program name. If <em>ident</em> is <strong>NULL</strong>, the program name is used. The <em>option</em> argument specifies flags which control the operation of <u>openlog</u>() and subsequent calls to <u>syslog</u>(). The facility argument establishes a default to be used if none is specified in subsequent calls to <u>syslog</u>(). The values that may be specified for option and facility are described below.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>The <em>option</em> argument to <u>openlog</u>() is a bit mask constructed by ORing together any of the following values.</p>
+<ul>
+<li><strong>LOG_CONS</strong>: write directly to the system console if there is an error while sending to the system logger.<ul>
+<li><strong>LOG_NDELAY</strong>: open the connection immediately (normally, the connection is opened when the first message is logged).</li>
+<li><strong>LOG_PERROR</strong>: also log the message to stderr.</li>
+<li><strong>LOG_PID</strong>: include the caller’s PID with each message.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>The facility argument is used to specify what type of program is logging the message. This lets the configuration file specify that messages from different facilities will be handled differently.</p>
+<ul>
+<li><strong>LOG_AUTH</strong>: security/authorization messages<ul>
+<li><strong>LOG_AUTHPRIV</strong>: security/authorization messages (private)</li>
+<li><strong>LOG_CRON</strong>: clock daemon (cron and at)</li>
+<li><strong>LOG_DAEMON</strong>: system daemons without separate facility value </li>
+<li><strong>LOG_FTP</strong>: ftp daemon</li>
+<li><strong>LOG_KERN</strong>: kernel messages (these can’t be generated from user processes)</li>
+<li><strong>LOG_LPR</strong>: line printer subsystem</li>
+<li><strong>LOG_MAIL</strong>: mail subsystem</li>
+<li><strong>LOG_NEWS</strong>: USENET news subsystem</li>
+<li><strong>LOG_SYSLOG</strong>: messages generated internally by syslogd(8)</li>
+<li><strong>LOG_USER</strong>: (default)generic user-level messages</li>
+<li><strong>LOG_UUCP</strong>: UUCP subsystem</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>void syslog(int priority, const char *format, ...);</code>: generates a log message. The priority argument is formed by ORing together a facility value and a level value (described below). If no facility value is ORed into priority, then the default value set by <u>openlog</u>() is used, or, if there was no preceding <u>openlog</u>() call, a default of <strong>LOG_USER</strong> is employed.</p>
+<ul>
+<li><p>This determines the importance of the message. The levels are, in order of decreasing importance.</p>
+<ul>
+<li><strong>LOG_EMERG</strong>: system is unusable</li>
+<li><p><strong>LOG_ALERT</strong>: action must be taken immediately</p>
+</li>
+<li><p><strong>LOG_CRIT</strong>: critical conditions</p>
+</li>
+<li><p><strong>LOG_ERR</strong>: error conditions</p>
+</li>
+<li><p><strong>LOG_WARNING</strong>: warning conditions</p>
+</li>
+<li><p><strong>LOG_NOTICE</strong>: normal, but significant, condition</p>
+</li>
+<li><p><strong>LOG_INFO</strong>: informational message</p>
+</li>
+</ul>
+</li>
+<li><strong>LOG_DEBUG</strong>: debug-level message</li>
+</ul>
+</li>
+<li><p><code>void closelog(void);</code>: closes the file descriptor being used to write to the system logger.</p>
+</li>
+</ul>
+<h2 id="Run-Other-applications"><a href="#Run-Other-applications" class="headerlink" title="Run Other applications"></a>Run Other applications</h2><ul>
+<li>The exec function family: execute the program pointed to by filename. This causes the program that is currently being run by the calling process to be replaced with a new program, with newly initialized stack, heap, and (initialized and uninitialized)data segments. On success, they does not return, on error -1 is returned, and <strong>errno</strong> is set appropriately.<ul>
+<li><code>int execve(const char *filename, char *const argv[], char *const envp[]);</code></li>
+<li><code>`int execl(const char *path, const char *arg,...(char*)NULL);</code></li>
+<li><code>int execlp(const char *file, const char *arg,...(char*)NULL);</code></li>
+<li><code>int execle(const char *path, const char *arg,...(char*)NULL, char* const envp[]);</code></li>
+<li><code>`int execv(const char *path, char *const argv[]);</code></li>
+<li><code>int execvp(const char *file, char *const argv[]);</code></li>
+<li><code>`int execvpe(const char *file, char *const argv[], char *const envp[]);</code></li>
+</ul>
+</li>
+<li><code>int system(const char *command);</code>: use <u>fork</u>() to create a child process that executes the shell command. The return value is one of the following<ul>
+<li>If command is <strong>NULL</strong>, then a nonzero value if a shell is available, or 0 if no shell is available.</li>
+<li>If a child process could not be created, or its status could not be retrieved, the return value is -1.</li>
+<li>If a shell could not be executed in the child process, then the return value is as though the child shell terminated by calling <u>_exit</u>() with the status 127.</li>
+<li>If all system calls succeed, then the return value is the termination status of the child shell used to execute command. (The termination status of a shell is the termination status of the last command it executes)</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      <div style="text-align:center;color: #ccc;font-size:14px;">---------------- The End ----------------</div>
+        
+      
+        <div id="reward-container">
+  <div>Donate comment here.</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="YiHe Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="YiHe Huang Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>YiHe Huang</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://youthfaith.cn/2019/01/07/ProcessManagement/" title="Process Management">http://youthfaith.cn/2019/01/07/ProcessManagement/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.</li>
+<li>
+     <strong>No reproduction without permission.</strong>
+</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Ultimate-Knowledge/" rel="tag"><i class="fa fa-tag"></i> Ultimate Knowledge</a>
+            
+              <a href="/tags/OS-System/" rel="tag"><i class="fa fa-tag"></i> OS System</a>
+            
+              <a href="/tags/C-Language/" rel="tag"><i class="fa fa-tag"></i> C Language</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/11/07/AdvancedKnowledgeofC/" rel="next" title="Advanced Knowledge of C Language">
+                  <i class="fa fa-chevron-left"></i> Advanced Knowledge of C Language
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/03/07/PosixSignal/" rel="prev" title="POSIX Signal">
+                  POSIX Signal <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="gitalk-container"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc" data-target="post-toc-wrap">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Process"><span class="nav-number">1.</span> <span class="nav-text">Process</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Concept-of-Process"><span class="nav-number">1.1.</span> <span class="nav-text">Concept of Process</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-States"><span class="nav-number">1.2.</span> <span class="nav-text">Process States</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-Creation"><span class="nav-number">1.3.</span> <span class="nav-text">Process Creation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-Termination"><span class="nav-number">1.4.</span> <span class="nav-text">Process Termination</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Process-Chain-and-Process-Fan"><span class="nav-number">2.</span> <span class="nav-text">Process Chain and Process Fan</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-Chain"><span class="nav-number">2.1.</span> <span class="nav-text">Process Chain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-Fan"><span class="nav-number">2.2.</span> <span class="nav-text">Process Fan</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defunct-Process"><span class="nav-number">3.</span> <span class="nav-text">Defunct Process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Daemon-Process"><span class="nav-number">4.</span> <span class="nav-text">Daemon Process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Run-Other-applications"><span class="nav-number">5.</span> <span class="nav-text">Run Other applications</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="YiHe Huang">
+  <p class="site-author-name" itemprop="name">YiHe Huang</p>
+  <div class="site-description" itemprop="description">YouthFaith's Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/YouthFaith" title="GitHub &rarr; https://github.com/YouthFaith" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:huangyihe52647849@gmail.com" title="E-Mail &rarr; mailto:huangyihe52647849@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://twitter.com/youthfaith1" title="Twitter &rarr; https://twitter.com/youthfaith1" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://dzblog.cn" title="https://dzblog.cn" rel="noopener" target="_blank">Wintermelon's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://crossoverjie.top" title="https://crossoverjie.top" rel="noopener" target="_blank">crossoverJie's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://yangbingdong.com" title="https://yangbingdong.com" rel="noopener" target="_blank">ookamiAntD's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://xiaozhou.net/" title="https://xiaozhou.net/" rel="noopener" target="_blank">Timothy's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://zww.me" title="https://zww.me" rel="noopener" target="_blank">ZWWoOoOo's Blog</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jitwxs.cn/" title="https://www.jitwxs.cn/" rel="noopener" target="_blank">Jitwxs's Blog</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiHe Huang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">153k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">2:19</span>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='158' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/muse.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'a78a0cd3150929e4d6b0',
+      clientSecret: '6f4f19733838d199a701705a5c56ac19b2c029ce',
+      repo: 'youthfaith-talk',
+      owner: 'YouthFaith',
+      admin: ['YouthFaith'],
+      id: '041529add5fc65ab7e10fa6ddec31b62',
+        language: 'en',
+      
+      distractionFreeMode: 'false'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"superSample":2,"width":150,"height":230,"position":"right"},"mobile":{"show":true},"react":{"opacityDefault":0.9,"opacityOnHover":0.5},"log":false});</script></body>
+</html>

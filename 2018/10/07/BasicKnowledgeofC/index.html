@@ -72,14 +72,14 @@
 </style>
 
   <meta name="description" content="dog $\sim$ Sin dog  Introduction of C LanguageProgram = Algorithm + Data Structure Concept of the program: as a translator between computer language and human language, it is a collection of instructi">
-<meta name="keywords" content="Basic Knowledge,C Language">
+<meta name="keywords" content="C Language,Basic Knowledge">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Basic Knowledge of C Language">
 <meta property="og:url" content="http://youthfaith.cn/2018/10/07/BasicKnowledgeofC/index.html">
 <meta property="og:site_name" content="YouthFaith&#39;s Blog">
 <meta property="og:description" content="dog $\sim$ Sin dog  Introduction of C LanguageProgram = Algorithm + Data Structure Concept of the program: as a translator between computer language and human language, it is a collection of instructi">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-04T05:36:10.456Z">
+<meta property="og:updated_time" content="2019-10-05T01:22:47.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Basic Knowledge of C Language">
 <meta name="twitter:description" content="dog $\sim$ Sin dog  Introduction of C LanguageProgram = Algorithm + Data Structure Concept of the program: as a translator between computer language and human language, it is a collection of instructi">
@@ -315,7 +315,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-04 13:36:10" itemprop="dateModified" datetime="2019-10-04T13:36:10+08:00">2019-10-04</time>
+                <time title="Modified: 2019-10-05 09:22:47" itemprop="dateModified" datetime="2019-10-05T09:22:47+08:00">2019-10-05</time>
               </span>
             
           
@@ -360,7 +360,7 @@
               
                 <span class="post-meta-item-text">Reading time &asymp;</span>
               
-              <span>33 mins.</span>
+              <span>32 mins.</span>
             </span>
           
 
@@ -381,9 +381,9 @@
 <li>Concept of the data structure: in computer science, it is a data organization, management, and storage format that enables efficient access and modification. More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data.</li>
 </ol>
 <h3 id="Development-of-Computer-Language"><a href="#Development-of-Computer-Language" class="headerlink" title="Development of Computer Language"></a>Development of Computer Language</h3><ol>
-<li>Machine language: consist of binary instructions for ‘0’ and ‘1’. It can be executed directly by a computer’s central processing unit (CPU). Each instruction causes the CPU to perform a very specific task, such as a load, a store, a jump, or an ALU operation on one or more units of data in CPU registers or memory.</li>
+<li>Machine language: consist of binary instructions for ‘0’ and ‘1’. It can be executed directly by a computer’s central processing unit (<strong>CPU</strong>). Each instruction causes the <strong>CPU</strong> to perform a very specific task, such as a load, a store, a jump, or an <strong>ALU</strong> operation on one or more units of data in <strong>CPU</strong> registers or memory.</li>
 <li>Assembly language: instructions described by mnemonic and it is any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture’s machine code instructions.</li>
-<li>High-level language: contain object-oriented or process-oriented languages. And C language, which belongs to process-oriented languages, is suitable for system-level development, but not application level.</li>
+<li>High-level language: contain object-oriented or process-oriented languages. And <strong>C</strong> language, which belongs to process-oriented languages, is suitable for system-level development, but not application level.</li>
 </ol>
 <h3 id="The-First-C-Program"><a href="#The-First-C-Program" class="headerlink" title="The First C Program"></a>The First C Program</h3><ul>
 <li><p>A “Hello, World!” program generally is a computer program that outputs or displays the message “Hello, World!”. Such a program is very simple in most programming languages, and is often used to illustrate the basic syntax of a programming language. It is often the first program written by people learning to code</p>
@@ -457,7 +457,7 @@
 </li>
 <li>Float and double type<ul>
 <li>Float constant: decimal form and exponential form.</li>
-<li>The way to store: IEEE 754. It is divided into: <strong>S</strong> (sign), <strong>E</strong> (exponent-marker), <strong>M</strong> (mantissa), and exponent-marker is represented by frame shift with 127 offset. </li>
+<li>The way to store: <strong>IEEE</strong> <strong>754</strong>. It is divided into: <strong>S</strong> (sign), <strong>E</strong> (exponent-marker), <strong>M</strong> (mantissa), and exponent-marker is represented by frame shift with 127 offset. </li>
 <li>Float is 32-bit and double is 64-bit.</li>
 </ul>
 </li>
@@ -503,8 +503,6 @@
 <li>Common functions about input and output<ul>
 <li><code>int sscanf(const char *str, const char *format, ...);</code>: read its input from the character string pointed to by <em>str</em>. On success, it returns the number of input items successfully matched and assigned; this can be fewer than provided for, or even zero, in the event of an early matching failure. The value <strong>EOF</strong> is returned if the end of input is reached before either the first successful conversion or a matching failure occurs. <strong>EOF</strong> is also returned if a read error occurs, in which case the error indicator for the stream is set, and <em>errno</em> is set to indicate the error.</li>
 <li><code>int sprintf(char *str, const char *format, ...);</code>: write its output to the character string pointed to by <em>str</em>. Upon successful return, it returns the number of characters printed (excluding the null byte used to end output to strings) and If an output error is encountered, a negative value is returned.</li>
-<li><code>char *gets(char *s);</code>: read a line from <em>stdin</em> into the buffer pointed to by <em>s</em> until either a terminating newline or <strong>EOF</strong>, which it replaces with a null byte (<strong>\0</strong>). It return s on success, and <strong>NULL</strong> on error or when end of file occurs while no characters have been read. However, given the lack of buffer overrun checking, there can be no guarantees that the function will even return.</li>
-<li><code>int puts(const char *s);</code>: write the string <em>s</em> and a trailing newline to <em>stdout</em>. It returns a nonnegative number on success, or <strong>EOF</strong> on error.</li>
 <li><code>int getchar(void);</code>: equivalent to <u>fgetc</u>() except that it may be implemented as a macro which evaluates stream more than once. It returns the character read as an unsigned char cast to an int or <strong>EOF</strong> on end of file or error.</li>
 <li><code>int putchar(int c);</code>: equivalent to <u>fputc</u>() except that it may be implemented as a macro which evaluates stream more than once. It returns the character written as an unsigned char cast to an int or <strong>EOF</strong> on error.</li>
 <li>Common operation to clear the buffer<ul>
@@ -525,7 +523,7 @@
 <ul>
 <li><p>Specially, <strong>ctype.h</strong> header file contains some useful functions like <code>int isalpha(int c)</code>, <code>int isdigit(int c)</code>, <code>int ispunct(int c)</code>, <code>int islower(int c)</code>, <code>int isupper(int c)</code>, <code>int isspace(int c)</code>, <code>int toupper(int c)</code> and <code>int tolower(int c)</code>. The values returned are nonzero if the character <em>c</em> falls into the tested class, and zero if not.</p>
 </li>
-<li><p>C and C-like languages have a special ternary operator (?:) for conditional expressions with a function that may be described by a template like this.</p>
+<li><p>C and C-like languages have a special ternary operator (<strong>?:</strong>) for conditional expressions with a function that may be described by a template like this.</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expression1?expression2:expression3</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -562,7 +560,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// print primes between 100 and 200</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Primes between 100 and 200 are:\n"</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">100</span>; i &lt; <span class="number">201</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= <span class="built_in">sqrt</span>(i + <span class="number">1</span>); j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i % j == <span class="number">0</span>) &#123;</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="Operator-and-Expression"><a href="#Operator-and-Expression" class="headerlink" title="Operator and Expression"></a>Operator and Expression</h2><h3 id="Introduction-of-Operator"><a href="#Introduction-of-Operator" class="headerlink" title="Introduction of Operator:"></a>Introduction of Operator:</h3><ol>
+<h2 id="Operator-and-Expression"><a href="#Operator-and-Expression" class="headerlink" title="Operator and Expression"></a>Operator and Expression</h2><h3 id="Operator"><a href="#Operator" class="headerlink" title="Operator"></a>Operator</h3><ol>
 <li><p>Classification of operators:</p>
 <ul>
 <li>Unary operator: <strong>&amp;</strong>, <strong>*</strong>, <strong>~</strong>, <strong>sizeof</strong>, <strong>()</strong></li>
@@ -680,7 +678,7 @@
 <h3 id="Two-dimensional-Array"><a href="#Two-dimensional-Array" class="headerlink" title="Two-dimensional Array"></a>Two-dimensional Array</h3><ol>
 <li><p>Definition of two-dimensional array</p>
 <ul>
-<li><code>DataType ArrayName[ConstantExpression1][ConstantExpression2];</code>, thereamong the former represents row and the latter represents column. In C language, two-dimensional arrays are stored in rows with contiguous addresses.</li>
+<li><code>DataType ArrayName[ConstantExpression1][ConstantExpression2];</code>, thereamong the former represents row and the latter represents column. In <strong>C</strong> language, two-dimensional arrays are stored in rows with contiguous addresses.</li>
 </ul>
 </li>
 <li><p>Initialization of two-dimensional array</p>
@@ -721,7 +719,7 @@
 <li>Robustness of code must be considered when we apply for storage area in heap or use pointer.</li>
 <li>Coding rule: Keep in mind that code is something to show people, not to show off.</li>
 </ol>
-<h2 id="Basic-Knowledge-of-Pointer"><a href="#Basic-Knowledge-of-Pointer" class="headerlink" title="Basic Knowledge of Pointer"></a>Basic Knowledge of Pointer</h2><h3 id="Introduction-of-Pointer"><a href="#Introduction-of-Pointer" class="headerlink" title="Introduction of Pointer"></a>Introduction of Pointer</h3><ol>
+<h2 id="Basic-Knowledge-of-Pointer"><a href="#Basic-Knowledge-of-Pointer" class="headerlink" title="Basic Knowledge of Pointer"></a>Basic Knowledge of Pointer</h2><h3 id="Pointer"><a href="#Pointer" class="headerlink" title="Pointer"></a>Pointer</h3><ol>
 <li>Role of pointer<ul>
 <li>Represent complex data structures effectively</li>
 <li>Easy to use arrays and stings</li>
@@ -759,7 +757,7 @@
 </ol>
 <h3 id="Segmentation-Fault"><a href="#Segmentation-Fault" class="headerlink" title="Segmentation Fault"></a>Segmentation Fault</h3><ol>
 <li>Concept and cause of segmentation fault<ul>
-<li>In computing, a segmentation fault (often shortened to segfault) or access violation is a fault, or failure condition, raised by hardware with memory protection, notifying an operating system (OS) the software has attempted to access a restricted area of memory (a memory access violation). On standard computers, this is a form of general protection fault. The OS kernel will, in response, usually perform some corrective action, generally passing the fault on to the offending process by sending the process a signal. Processes can in some cases install a custom signal handler, allowing them to recover on their own, but otherwise the OS default signal handler is used, generally causing abnormal termination of the process (a program crash), and sometimes a core dump. Segmentation faults are a common class of error in programs written in languages like C that provide low-level memory access. They arise primarily due to errors in use of pointers for virtual memory addressing, particularly illegal access. Another type of memory access error is a bus error, which also has various causes, but is today much rarer; these occur primarily due to incorrect physical memory addressing, or due to misaligned memory access – these are memory references that the hardware cannot address, rather than references that a process is not allowed to address.</li>
+<li>In computing, a segmentation fault (often shortened to segfault) or access violation is a fault, or failure condition, raised by hardware with memory protection, notifying an operating system (<strong>OS</strong>) the software has attempted to access a restricted area of memory (a memory access violation). On standard computers, this is a form of general protection fault. The <strong>OS</strong> kernel will, in response, usually perform some corrective action, generally passing the fault on to the offending process by sending the process a signal. Processes can in some cases install a custom signal handler, allowing them to recover on their own, but otherwise the <strong>OS</strong> default signal handler is used, generally causing abnormal termination of the process (a program crash), and sometimes a core dump. Segmentation faults are a common class of error in programs written in languages like C that provide low-level memory access. They arise primarily due to errors in use of pointers for virtual memory addressing, particularly illegal access. Another type of memory access error is a bus error, which also has various causes, but is today much rarer; these occur primarily due to incorrect physical memory addressing, or due to misaligned memory access – these are memory references that the hardware cannot address, rather than references that a process is not allowed to address.</li>
 <li>Common case: overwrite nil pointer, access a nonexistent memory location, access a system-protected memory location and modify variables in the constant area.</li>
 </ul>
 </li>
@@ -773,7 +771,7 @@
 <h3 id="Function-Parameter-Passing"><a href="#Function-Parameter-Passing" class="headerlink" title="Function Parameter Passing"></a>Function Parameter Passing</h3><ol>
 <li>Call by value<ul>
 <li>A parameter acts within the subroutine as a new local variable initialized to the value of the argument.</li>
-<li>Call by value (also referred to as pass by value) is the most common evaluation strategy, used in languages as different as C. In call by value, the argument expression is evaluated, and the resulting value is bound to the corresponding variable in the function (frequently by copying the value into a new memory region). If the function or procedure is able to assign values to its parameters, only its local variable is assigned — that is, anything passed into a function call is unchanged in the caller’s scope when the function returns.</li>
+<li>Call by value (also referred to as pass by value) is the most common evaluation strategy, used in languages as different as <strong>C</strong>. In call by value, the argument expression is evaluated, and the resulting value is bound to the corresponding variable in the function (frequently by copying the value into a new memory region). If the function or procedure is able to assign values to its parameters, only its local variable is assigned — that is, anything passed into a function call is unchanged in the caller’s scope when the function returns.</li>
 </ul>
 </li>
 <li>Call by reference<ul>
@@ -783,7 +781,7 @@
 </li>
 </ol>
 <h3 id="Multiple-Indirection"><a href="#Multiple-Indirection" class="headerlink" title="Multiple Indirection"></a>Multiple Indirection</h3><ol>
-<li>Concept of multiple indirection: In some languages, a pointer can reference another pointer, requiring multiple dereference operations to get to the original value. While each level of indirection may add a performance cost, it is sometimes necessary in order to provide correct behavior for complex data structures. For example, in C it is typical to define a linked list in terms of an element that contains a pointer to the next element of the list. And a basic example is in the argv argument to the main function in C (and C++), which is given in the prototype as <code>char **argv</code>—this is because the variable <code>argv</code> itself is a pointer to an array of strings (an array of arrays), so <code>*argv</code> is a pointer to the 0th string (by convention the name of the program), and <code>**argv</code> is the 0th character of the 0th string.</li>
+<li>Concept of multiple indirection: In some languages, a pointer can reference another pointer, requiring multiple dereference operations to get to the original value. While each level of indirection may add a performance cost, it is sometimes necessary in order to provide correct behavior for complex data structures. For example, in <strong>C</strong> it is typical to define a linked list in terms of an element that contains a pointer to the next element of the list. And a basic example is in the argv argument to the main function in <strong>C</strong> (and <strong>C++</strong>), which is given in the prototype as <code>char **argv</code>—this is because the variable <code>argv</code> itself is a pointer to an array of strings (an array of arrays), so <code>*argv</code> is a pointer to the 0th string (by convention the name of the program), and <code>**argv</code> is the 0th character of the 0th string.</li>
 <li>Definition and initialization of pointers to pointers: <code>DataType** Pointer2Name = &amp;Pointer1Name;</code></li>
 </ol>
 <h3 id="Constant-Pointer-and-Pointer-Constant"><a href="#Constant-Pointer-and-Pointer-Constant" class="headerlink" title="Constant Pointer and Pointer Constant"></a>Constant Pointer and Pointer Constant</h3><ol>
@@ -853,15 +851,31 @@
           
           <div class="post-tags">
             
-              <a href="/tags/Basic-Knowledge/" rel="tag"><i class="fa fa-tag"></i> Basic Knowledge</a>
-            
               <a href="/tags/C-Language/" rel="tag"><i class="fa fa-tag"></i> C Language</a>
+            
+              <a href="/tags/Basic-Knowledge/" rel="tag"><i class="fa fa-tag"></i> Basic Knowledge</a>
             
           </div>
         
 
         
 
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2018/11/07/AdvancedKnowledgeofC/" rel="prev" title="Advanced Knowledge of C Language">
+                  Advanced Knowledge of C Language <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
       </footer>
     
   </div>
@@ -909,7 +923,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-of-C-Language"><span class="nav-number">1.</span> <span class="nav-text">Introduction of C Language</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Program-Algorithm-Data-Structure"><span class="nav-number">1.1.</span> <span class="nav-text">Program = Algorithm + Data Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Development-of-Computer-Language"><span class="nav-number">1.2.</span> <span class="nav-text">Development of Computer Language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-First-C-Program"><span class="nav-number">1.3.</span> <span class="nav-text">The First C Program</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comment-in-C-Language"><span class="nav-number">1.4.</span> <span class="nav-text">Comment in C Language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Development-Process-of-C-Program"><span class="nav-number">1.5.</span> <span class="nav-text">Development Process of C Program</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primary-Data-Type"><span class="nav-number">2.</span> <span class="nav-text">Primary Data Type</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constants-and-Variables"><span class="nav-number">2.1.</span> <span class="nav-text">Constants and Variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Type"><span class="nav-number">2.2.</span> <span class="nav-text">Data Type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Formatted-Input-Output-Function"><span class="nav-number">2.3.</span> <span class="nav-text">Formatted Input/Output Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-only-Variable-and-Constant"><span class="nav-number">2.4.</span> <span class="nav-text">Read-only Variable and Constant</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conditional-Structure"><span class="nav-number">3.</span> <span class="nav-text">Conditional Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#If-then-else-Statement"><span class="nav-number">3.1.</span> <span class="nav-text">If - then - else Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-and-Switch-Statement"><span class="nav-number">3.2.</span> <span class="nav-text">Case and Switch Statement</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cycle-Structure"><span class="nav-number">4.</span> <span class="nav-text">Cycle Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#While-Statement"><span class="nav-number">4.1.</span> <span class="nav-text">While Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Do-while-Statement"><span class="nav-number">4.2.</span> <span class="nav-text">Do-while Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-Statement"><span class="nav-number">4.3.</span> <span class="nav-text">For Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jump-Statement"><span class="nav-number">4.4.</span> <span class="nav-text">Jump Statement</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operator-and-Expression"><span class="nav-number">5.</span> <span class="nav-text">Operator and Expression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-Operator"><span class="nav-number">5.1.</span> <span class="nav-text">Introduction of Operator:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Type-Conversion"><span class="nav-number">5.2.</span> <span class="nav-text">Type Conversion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Knowledge-of-Function"><span class="nav-number">6.</span> <span class="nav-text">Basic Knowledge of Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Advantage-and-Classification-of-Function"><span class="nav-number">6.1.</span> <span class="nav-text">Advantage and Classification of Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-and-Calling-of-Function"><span class="nav-number">6.2.</span> <span class="nav-text">Definition and Calling of Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Concept-and-Declaration-of-Function-Prototype"><span class="nav-number">6.3.</span> <span class="nav-text">Concept and Declaration of Function Prototype</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array"><span class="nav-number">7.</span> <span class="nav-text">Array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#One-dimensional-Array"><span class="nav-number">7.1.</span> <span class="nav-text">One-dimensional Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-dimensional-Array"><span class="nav-number">7.2.</span> <span class="nav-text">Two-dimensional Array</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#High-Quality-Coding-Specification"><span class="nav-number">8.</span> <span class="nav-text">High Quality Coding Specification</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Macro-Coding-Specification"><span class="nav-number">8.1.</span> <span class="nav-text">Macro Coding Specification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Micro-Coding-Specification"><span class="nav-number">8.2.</span> <span class="nav-text">Micro Coding Specification</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Knowledge-of-Pointer"><span class="nav-number">9.</span> <span class="nav-text">Basic Knowledge of Pointer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-of-Pointer"><span class="nav-number">9.1.</span> <span class="nav-text">Introduction of Pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Segmentation-Fault"><span class="nav-number">9.2.</span> <span class="nav-text">Segmentation Fault</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Parameter-Passing"><span class="nav-number">9.3.</span> <span class="nav-text">Function Parameter Passing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multiple-Indirection"><span class="nav-number">9.4.</span> <span class="nav-text">Multiple Indirection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constant-Pointer-and-Pointer-Constant"><span class="nav-number">9.5.</span> <span class="nav-text">Constant Pointer and Pointer Constant</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supplement"><span class="nav-number">10.</span> <span class="nav-text">Supplement</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Generating-Random-Number"><span class="nav-number">10.1.</span> <span class="nav-text">Generating Random Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Do-Not-Display-Password"><span class="nav-number">10.2.</span> <span class="nav-text">Do Not Display Password</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-of-C-Language"><span class="nav-number">1.</span> <span class="nav-text">Introduction of C Language</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Program-Algorithm-Data-Structure"><span class="nav-number">1.1.</span> <span class="nav-text">Program = Algorithm + Data Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Development-of-Computer-Language"><span class="nav-number">1.2.</span> <span class="nav-text">Development of Computer Language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-First-C-Program"><span class="nav-number">1.3.</span> <span class="nav-text">The First C Program</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comment-in-C-Language"><span class="nav-number">1.4.</span> <span class="nav-text">Comment in C Language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Development-Process-of-C-Program"><span class="nav-number">1.5.</span> <span class="nav-text">Development Process of C Program</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primary-Data-Type"><span class="nav-number">2.</span> <span class="nav-text">Primary Data Type</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constants-and-Variables"><span class="nav-number">2.1.</span> <span class="nav-text">Constants and Variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Type"><span class="nav-number">2.2.</span> <span class="nav-text">Data Type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Formatted-Input-Output-Function"><span class="nav-number">2.3.</span> <span class="nav-text">Formatted Input/Output Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-only-Variable-and-Constant"><span class="nav-number">2.4.</span> <span class="nav-text">Read-only Variable and Constant</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conditional-Structure"><span class="nav-number">3.</span> <span class="nav-text">Conditional Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#If-then-else-Statement"><span class="nav-number">3.1.</span> <span class="nav-text">If - then - else Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-and-Switch-Statement"><span class="nav-number">3.2.</span> <span class="nav-text">Case and Switch Statement</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cycle-Structure"><span class="nav-number">4.</span> <span class="nav-text">Cycle Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#While-Statement"><span class="nav-number">4.1.</span> <span class="nav-text">While Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Do-while-Statement"><span class="nav-number">4.2.</span> <span class="nav-text">Do-while Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-Statement"><span class="nav-number">4.3.</span> <span class="nav-text">For Statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jump-Statement"><span class="nav-number">4.4.</span> <span class="nav-text">Jump Statement</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operator-and-Expression"><span class="nav-number">5.</span> <span class="nav-text">Operator and Expression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Operator"><span class="nav-number">5.1.</span> <span class="nav-text">Operator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Type-Conversion"><span class="nav-number">5.2.</span> <span class="nav-text">Type Conversion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Knowledge-of-Function"><span class="nav-number">6.</span> <span class="nav-text">Basic Knowledge of Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Advantage-and-Classification-of-Function"><span class="nav-number">6.1.</span> <span class="nav-text">Advantage and Classification of Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-and-Calling-of-Function"><span class="nav-number">6.2.</span> <span class="nav-text">Definition and Calling of Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Concept-and-Declaration-of-Function-Prototype"><span class="nav-number">6.3.</span> <span class="nav-text">Concept and Declaration of Function Prototype</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array"><span class="nav-number">7.</span> <span class="nav-text">Array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#One-dimensional-Array"><span class="nav-number">7.1.</span> <span class="nav-text">One-dimensional Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-dimensional-Array"><span class="nav-number">7.2.</span> <span class="nav-text">Two-dimensional Array</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#High-Quality-Coding-Specification"><span class="nav-number">8.</span> <span class="nav-text">High Quality Coding Specification</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Macro-Coding-Specification"><span class="nav-number">8.1.</span> <span class="nav-text">Macro Coding Specification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Micro-Coding-Specification"><span class="nav-number">8.2.</span> <span class="nav-text">Micro Coding Specification</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Knowledge-of-Pointer"><span class="nav-number">9.</span> <span class="nav-text">Basic Knowledge of Pointer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pointer"><span class="nav-number">9.1.</span> <span class="nav-text">Pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Segmentation-Fault"><span class="nav-number">9.2.</span> <span class="nav-text">Segmentation Fault</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Parameter-Passing"><span class="nav-number">9.3.</span> <span class="nav-text">Function Parameter Passing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multiple-Indirection"><span class="nav-number">9.4.</span> <span class="nav-text">Multiple Indirection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constant-Pointer-and-Pointer-Constant"><span class="nav-number">9.5.</span> <span class="nav-text">Constant Pointer and Pointer Constant</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supplement"><span class="nav-number">10.</span> <span class="nav-text">Supplement</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Generating-Random-Number"><span class="nav-number">10.1.</span> <span class="nav-text">Generating Random Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Do-Not-Display-Password"><span class="nav-number">10.2.</span> <span class="nav-text">Do Not Display Password</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -927,7 +941,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -963,7 +977,13 @@
         
           
         
-        <span class="site-state-item-count">2</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
@@ -1065,12 +1085,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">36k</span>
+    <span title="Symbols count total">153k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">33 mins.</span>
+    <span title="Reading time total">2:19</span>
 </div>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
