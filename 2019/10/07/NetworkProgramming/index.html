@@ -81,7 +81,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://youthfaith.cn/img/tcp_socket.png">
 <meta property="og:image" content="http://youthfaith.cn/img/udp_socket.png">
-<meta property="og:updated_time" content="2019-10-08T13:43:00.223Z">
+<meta property="og:updated_time" content="2019-10-08T13:46:01.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Network Programming">
 <meta name="twitter:description" content="Internetwork Data CommunicationEndianness Concept of endianness: endianness refers to the order of bytes (or sometimes bits) within a binary representation of a number. It can also be used more genera">
@@ -318,7 +318,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-08 21:43:00" itemprop="dateModified" datetime="2019-10-08T21:43:00+08:00">2019-10-08</time>
+                <time title="Modified: 2019-10-08 21:46:01" itemprop="dateModified" datetime="2019-10-08T21:46:01+08:00">2019-10-08</time>
               </span>
             
           
@@ -377,9 +377,13 @@
 
       
         <h2 id="Internetwork-Data-Communication"><a href="#Internetwork-Data-Communication" class="headerlink" title="Internetwork Data Communication"></a>Internetwork Data Communication</h2><h3 id="Endianness"><a href="#Endianness" class="headerlink" title="Endianness"></a>Endianness</h3><ol>
-<li>Concept of endianness: endianness refers to the order of bytes (or sometimes bits) within a binary representation of a number. It can also be used more generally to refer to the internal ordering of any representation, such as the digits in a numeral system or the sections of a date. In its most common usage, endianness indicates the ordering of bytes within a multi-byte number. A big-endian ordering places the most significant byte first and the least significant byte last, while a little-endian ordering does the opposite. For example, consider the unsigned hexadecimal number <code>0x1234</code>, which requires at least two bytes to represent. In a big-endian ordering they would be <code>[ 0x12, 0x34 ]</code>, while in a little-endian ordering, the bytes would be arranged <code>[ 0x34, 0x12 ]</code>.</li>
-<li>Many <strong>IETF RFCs</strong> use the term network order, meaning the order of transmission for bits and bytes over the wire in network protocols. Among others, the historic <strong>RFC 1700</strong> has defined the network order for protocols in the Internet protocol suite to be big-endian, hence the use of the term “network byte order” for big-endian byte order.</li>
-<li>Some common function to convert values between host and network byte order<ul>
+<li><p>Concept of endianness: endianness refers to the order of bytes (or sometimes bits) within a binary representation of a number. It can also be used more generally to refer to the internal ordering of any representation, such as the digits in a numeral system or the sections of a date. In its most common usage, endianness indicates the ordering of bytes within a multi-byte number. A big-endian ordering places the most significant byte first and the least significant byte last, while a little-endian ordering does the opposite. For example, consider the unsigned hexadecimal number <code>0x1234</code>, which requires at least two bytes to represent. In a big-endian ordering they would be <code>[ 0x12, 0x34 ]</code>, while in a little-endian ordering, the bytes would be arranged <code>[ 0x34, 0x12 ]</code>.</p>
+<a id="more"></a>
+</li>
+<li><p>Many <strong>IETF RFCs</strong> use the term network order, meaning the order of transmission for bits and bytes over the wire in network protocols. Among others, the historic <strong>RFC 1700</strong> has defined the network order for protocols in the Internet protocol suite to be big-endian, hence the use of the term “network byte order” for big-endian byte order.</p>
+</li>
+<li><p>Some common function to convert values between host and network byte order</p>
+<ul>
 <li><code>uint32_t htonl(uint32_t hostlong);</code>: converts the unsigned integer <em>hostlong</em> from host byte order to network byte order.</li>
 <li><code>uint32_t ntohl(uint32_t netlong);</code>: converts the unsigned integer <em>netlong</em> from network byte order to host byte order.</li>
 <li><code>uint16_t htons(uint16_t hostshort);</code>: converts the unsigned short integer <em>hostshort</em> from host byte order to network byte order.</li>
