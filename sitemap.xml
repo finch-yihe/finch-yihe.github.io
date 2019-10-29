@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://youthfaith.cn/2019/10/07/NetworkProgramming/</loc>
+    
+    <lastmod>2019-10-29T01:42:39.508Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://youthfaith.cn/2018/11/07/Shell/</loc>
     
     <lastmod>2019-10-09T08:39:42.991Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://youthfaith.cn/2019/07/01/MyShellAndVim/</loc>
     
     <lastmod>2019-10-09T08:39:28.887Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://youthfaith.cn/2019/10/07/NetworkProgramming/</loc>
-    
-    <lastmod>2019-10-09T08:39:09.035Z</lastmod>
     
   </url>
   
