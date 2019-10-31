@@ -79,7 +79,7 @@
 <meta property="og:site_name" content="YouthFaith&#39;s Blog">
 <meta property="og:description" content="The talent of success is nothing more than doing well whatever you do without a thought of time.  Linux CommandsConcept of Linux Commands&amp;emsp;A Linux command is a command that manages a Linux system.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-31T05:46:23.565Z">
+<meta property="og:updated_time" content="2019-10-31T06:17:05.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Common Linux Commands">
 <meta name="twitter:description" content="The talent of success is nothing more than doing well whatever you do without a thought of time.  Linux CommandsConcept of Linux Commands&amp;emsp;A Linux command is a command that manages a Linux system.">
@@ -315,7 +315,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-31 13:46:23" itemprop="dateModified" datetime="2019-10-31T13:46:23+08:00">2019-10-31</time>
+                <time title="Modified: 2019-10-31 14:17:05" itemprop="dateModified" datetime="2019-10-31T14:17:05+08:00">2019-10-31</time>
               </span>
             
           
@@ -1002,6 +1002,56 @@
 
   
 
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
   
 
   
